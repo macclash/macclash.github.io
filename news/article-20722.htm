@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://macclash.github.io/news/article-20722.htm" />
+    <title>极品vue3中setup的细节,以及定义多个响应式reactive</title>
+        <meta name="description" content="vue3 setup reactive作用: 定义多个数据的响应式 const proxy = reactive(obj): 接收一个普通对象然后返回该普通对象的响应式代理器对象 响应式转换是“深层的" />
+        <link rel="icon" href="__ADDON__/img/macclash/favicon.ico" type="image/x-icon"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/aos.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/style1.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BKMT4JJEWP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BKMT4JJEWP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <header class="site-navbar py-3 js-site-navbar site-navbar-target" role="banner" id="site-navbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 site-logo">
+                    <a href="/" class="text-white h2 mb-0">
+                                        <span class="mb-0">Mac Clash</span>
+                                        </a>
+                </div>
+                <div class="col-md-8 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                                        <li><a href="/" class="nav-link">首页</a></li>
+                                                        <li><a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                        <li><a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                        <li><a href="#" class="nav-link">关于</a></li>
+                            <li><a href="#" class="nav-link">联系</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    </header>
+    <div class="site-blocks-cover overlay" style="background-image: url(/assets/website/img/macclash/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+                    <h1 class="text-white font-weight-light text-uppercase font-weight-bold">
+                        极品vue3中setup的细节,以及定义多个响应式reactive                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section" id="section-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><strong>vue3 setup reactive</strong><br /><em>作用: 定义多个数据的响应式<br /> const proxy = reactive(obj): 接收一个普通对象然后返回该普通对象的响应式代理器对象<br /> 响应式转换是“深层的”：会影响对象内部所有嵌套的属性<br /> 内部基于 ES6 的 Proxy 实现，通过代理对象操作源对象内部数据都是响应式的</em></p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>script lang<span class="token operator">=</span><span class="token string">"ts"</span><span class="token operator">&gt;</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> defineComponent<span class="token punctuation">,</span> reactive<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">"vue"</span><span class="token punctuation">;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   name<span class="token punctuation">:</span><span class="token string">"App"</span><span class="token punctuation">,</span>   components<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">const</span> obj<span class="token operator">=</span><span class="token punctuation">{<!-- --></span>       name<span class="token punctuation">:</span><span class="token string">"张三"</span><span class="token punctuation">,</span>       age<span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">,</span>       wiff<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>         name<span class="token punctuation">:</span><span class="token string">"小红"</span><span class="token punctuation">,</span>         age<span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">,</span>         car<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"汽车"</span><span class="token punctuation">,</span><span class="token string">"房车"</span><span class="token punctuation">,</span><span class="token string">"游轮"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">// 作用: 定义多个数据的响应式</span><span class="token comment">// const proxy = reactive(obj): 接收一个普通对象然后返回该普通对象的响应式代理器对象</span><span class="token comment">// 响应式转换是“深层的”：会影响对象内部所有嵌套的属性</span><span class="token comment">// 内部基于 ES6 的 Proxy 实现，通过代理对象操作源对象内部数据都是响应式的</span><span class="token comment">// 把数据变成响应式对象</span><span class="token comment">// 返回一个proxy的代理对象,被代理的目标对象就是obj对象</span><span class="token comment">// sum代理对象          obj是目标对象</span><span class="token comment">// 代理对象是响应式的,删除或更新或添加,操作代理对象就ok,目标对象中的数据也会随着发生变化,界面渲染,也需要代理对象</span><span class="token keyword">const</span> sum<span class="token operator">=</span><span class="token function">reactive</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">let</span><span class="token function-variable function">dian</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>       sum<span class="token punctuation">.</span>name<span class="token operator">=</span><span class="token string">"小红"</span><span class="token punctuation">;</span>       sum<span class="token punctuation">.</span>age<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>       sum<span class="token punctuation">,</span>       dian<span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></code></pre> <h2><a id="vue3vue2_48" rel="nofollow"></a>vue3响应式与vue2响应式的区别</h2> <p><strong>vue2的响应式</strong><br /> 核心:<br /> 对象: 通过defineProperty对对象的已有属性值的读取和修改进行劫持(监视/拦截)<br /> 数组: 通过重写数组更新数组一系列更新元素的方法来实现元素修改的劫持</p> <pre><code class="prism language-javascript">Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span><span class="token string">'count'</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <p><strong>vue3的响应式主要通过proxy与调用reflect</strong><br /> 核心:<br /> 通过Proxy(代理): 拦截对data任意属性的任意(13种)操作, 包括属性值的读写, 属性的添加, 属性的删除等…<br /> 通过 Reflect(反射): 动态对被代理对象的相应属性进行特定的操作</p> <pre><code class="prism language-javascript"><span class="token comment">/*      proxyUser是代理对象, user是被代理对象     后面所有的操作都是通过代理对象来操作被代理对象内部属性     */</span><span class="token keyword">const</span> proxyUser<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">Proxy</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> prop<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'劫持get()'</span><span class="token punctuation">,</span> prop<span class="token punctuation">)</span><span class="token keyword">return</span> Reflect<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> prop<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> prop<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'劫持set()'</span><span class="token punctuation">,</span> prop<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token keyword">return</span> Reflect<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> prop<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// (2)</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token function">deleteProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> prop<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'劫持delete属性'</span><span class="token punctuation">,</span> prop<span class="token punctuation">)</span><span class="token keyword">return</span> Reflect<span class="token punctuation">.</span><span class="token function">deleteProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> prop<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <h2><a id="vue3setup_90" rel="nofollow"></a>vue3中setup的细节</h2> <p><strong>一.setup执行的时机</strong><br /> 在beforeCreate之前执行(一次), 此时组件对象还没有创建<br /> this是undefined, 不能通过this来访问data/computed/methods / props<br /> 其实所有的composition API相关回调函数中也都不可以<br /><strong>二.setup的返回值</strong><br /> 一般都返回一个对象: 为模板提供数据, 也就是模板中可以直接使用此对象中的所有属性/方法<br /> 返回对象中的属性会与data函数返回对象的属性合并成为组件对象的属性<br /> 返回对象中的方法会与methods中的方法合并成功组件对象的方法<br /> 如果有重名, setup优先<br /> 注意:<br /> 一般不要混合使用: methods中可以访问setup提供的属性和方法, 但在setup方法中不能访问data和methods<br /> setup不能是一个async函数: 因为返回值不再是return的对象, 而是promise, 模板看不到return对象中的属性数据</p> <p><strong>三.setup的参数</strong><br /> setup(props, context) / setup(props, {attrs, slots, emit})<br /> props: 包含props配置声明且传入了的所有属性的对象<br /> attrs: 包含没有在props配置中声明的属性的对象, 相当于 this.<span class="katex--inline"><span class="katex"><span class="katex-mathml"></p> <p>        a</p> <p>        t</p> <p>        t</p> <p>        r</p> <p>        s</p> <p>        s</p> <p>        l</p> <p>        o</p> <p>        t</p> <p>        s</p> <p>        :</p> <p>        包</p> <p>        含</p> <p>        所</p> <p>        有</p> <p>        传</p> <p>        入</p> <p>        的</p> <p>        插</p> <p>        槽</p> <p>        内</p> <p>        容</p> <p>        的</p> <p>        对</p> <p>        象</p> <p>        ,</p> <p>        相</p> <p>        当</p> <p>        于</p> <p>        t</p> <p>        h</p> <p>        i</p> <p>        s</p> <p>        .</p> <p>       attrs slots: 包含所有传入的插槽内容的对象, 相当于 this.</span><span class="katex-html"><span class="base"><span class="strut" style="height: 0.69444em; vertical-align: 0em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right: 0.02778em;">r</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord cjk_fallback">包</span><span class="mord cjk_fallback">含</span><span class="mord cjk_fallback">所</span><span class="mord cjk_fallback">有</span><span class="mord cjk_fallback">传</span><span class="mord cjk_fallback">入</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">插</span><span class="mord cjk_fallback">槽</span><span class="mord cjk_fallback">内</span><span class="mord cjk_fallback">容</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">对</span><span class="mord cjk_fallback">象</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.166667em;"></span><span class="mord cjk_fallback">相</span><span class="mord cjk_fallback">当</span><span class="mord cjk_fallback">于</span><span class="mord mathdefault">t</span><span class="mord mathdefault">h</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord">.</span></span></span></span></span>slots<br /> emit: 用来分发自定义事件的函数, 相当于 this.$emit</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-20719.htm">Vue Tabbar 的封装</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-clash-node.htm" title="11月11日→19.5M/S|2024年最新免费节点Mac Clash订阅链接地址">11月11日→19.5M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-clash-windows.htm" title="9月28日→20.3M/S|2024年最新免费节点Mac Clash订阅链接地址">9月28日→20.3M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-subscribe-node.htm" title="11月27日→21.8M/S|2024年最新免费节点Mac Clash订阅链接地址">11月27日→21.8M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-clash-node.htm" title="11月14日→20.2M/S|2024年最新免费节点Mac Clash订阅链接地址">11月14日→20.2M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-node-share.htm" title="10月29日→19.4M/S|2024年最新免费节点Mac Clash订阅链接地址">10月29日→19.4M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-free-ssr-node.htm" title="10月28日→20.6M/S|2024年最新免费节点Mac Clash订阅链接地址">10月28日→20.6M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-node-share.htm" title="10月30日→18M/S|2024年最新免费节点Mac Clash订阅链接地址">10月30日→18M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-clash-windows.htm" title="10月27日→21.5M/S|2024年最新免费节点Mac Clash订阅链接地址">10月27日→21.5M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-clash-node.htm" title="10月17日→19M/S|2024年最新免费节点Mac Clash订阅链接地址">10月17日→19M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-clash-node.htm" title="11月2日→21.8M/S|2024年最新免费节点Mac Clash订阅链接地址">11月2日→21.8M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">5</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="pt-5">
+                        <p>
+                            <a href="/">Mac Clash免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- </div> -->
+    <script src="/assets/website/js/frontend/macclash/jquery-3.3.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-ui.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.easing.1.3.js"></script>
+    <script src="/assets/website/js/frontend/macclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.stellar.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.countdown.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/aos.js"></script>
+    <script src="/assets/website/js/frontend/macclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
