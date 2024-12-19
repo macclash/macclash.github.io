@@ -18,8 +18,7 @@
     <link rel="stylesheet" href="/assets/website/css/macclash/flaticon.css">
     <link rel="stylesheet" href="/assets/website/css/macclash/aos.css">
     <link rel="stylesheet" href="/assets/website/css/macclash/style1.css">
-    
-<!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKMT4JJEWP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -83,7 +82,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<p>vue中，基于vue-seamless-scroll无缝滚动，供大家参考，具体内容如下</p> <p>1、安装vue-seamless-scroll</p> <div class="ay1code"> <pre class="brush:js;">npm install vue-seamless-scroll --save　</pre> </div> <p>2、引入组件</p> <p>全局引入在main.js中添加</p> <div class="ay1code"> <pre class="brush:js;">import scroll from 'vue-seamless-scroll'  Vue.use(scroll)</pre> </div> <p>组件局部引入</p> <div class="ay1code"> <pre class="brush:js;">&lt;vue-seamless-scroll&gt;&lt;/vue-seamless-scroll&gt;  import vueSeamlessScroll from 'vue-seamless-scroll'  components: {          vueSeamlessScroll  },</pre> </div> <p>3、配置参数</p> <div class="ay1code"> <pre class="brush:js;">// 监听属性 类似于data概念  computed: {          defaultOption () {                  return {                      step: 0.2, // 数值越大速度滚动越快                      limitMoveNum: 2, // 开始无缝滚动的数据量 this.dataList.length                      hoverStop: true, // 是否开启鼠标悬停stop                      direction: 1, // 0向下 1向上 2向左 3向右                      openWatch: true, // 开启数据实时监控刷新dom                      singleHeight: 0, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction =&gt; 0/1                      singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction =&gt; 2/3                      waitTime: 1000 // 单步运动停止的时间(默认值1000ms)                  }              }             },　</pre> </div> <p>4、完整实例代码</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;template&gt;      &lt;div class="" style="padding: 50px;"&gt;          &lt;div class="page-example3" style=""&gt;              &lt;vue-seamless-scroll :data="listData" :class-option="defaultOption" &gt;                  &lt;ul class="ul-scoll"&gt;                      &lt;li v-for="(item, index) in listData" :key='index'&gt;                          &lt;span class="title"&gt;{{item.title}}：&lt;/span&gt;&lt;span class="date"&gt;{{item.time}}&lt;/span&gt;                      &lt;/li&gt;                  &lt;/ul&gt;              &lt;/vue-seamless-scroll&gt;          &lt;/div&gt;      &lt;/div&gt;  &lt;/template&gt;     &lt;script&gt;      import vueSeamlessScroll from 'vue-seamless-scroll'      export default {          name: 'Example3',          data() {              // 这里存放数据              return {                  listData: []              }          },          // import引入的组件需要注入到对象中才能使用          components: {              vueSeamlessScroll          },          // 监听属性 类似于data概念          computed: {              defaultOption () {                  return {                      step: 1, // 数值越大速度滚动越快                      limitMoveNum: 2, // 开始无缝滚动的数据量 this.dataList.length                      hoverStop: true, // 是否开启鼠标悬停stop                      direction: 1, // 0向下 1向上 2向左 3向右                      openWatch: true, // 开启数据实时监控刷新dom                      singleHeight: 0, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction =&gt; 0/1                      singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction =&gt; 2/3                      waitTime: 1000 // 单步运动停止的时间(默认值1000ms)                  }              }             },          // 方法集合          methods: {},          // 监控data中的数据变化          watch: {},          // 生命周期 - 创建完成（可以访问当前this实例）          created() {             },          // 生命周期 - 挂载完成（可以访问DOM元素）          mounted() {              for(let i = 0 ; i &lt; 15 ; i++){                  let j = {                      title:'无缝滚动第几条啊啊啊-'+i,                      time: '2020-04-10'                  }                  this.listData.push(j)              }          }      }  &lt;/script&gt;     &lt;style scoped lang="scss"&gt;      //@import url(); 引入公共css类      .page-example3{          width: 400px;          height: 200px;          overflow: hidden;          border: 1px solid #283dff;          .ul-scoll{              li{                  margin: 6px;                  padding: 5px;                  background: rgba(198, 142, 226, 0.4);              }          }      }  &lt;/style&gt;</pre> </div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<p>vue中，基于vue-seamless-scroll无缝滚动，供大家参考，具体内容如下</p> <p>1、安装vue-seamless-scroll</p> <div class="ay1code"> <pre class="brush:js;">npm install vue-seamless-scroll --save　</pre> </div> <p>2、引入组件</p> <p>全局引入在main.js中添加</p> <div class="ay1code"> <pre class="brush:js;">import scroll from 'vue-seamless-scroll'  Vue.use(scroll)</pre> </div> <p>组件局部引入</p> <div class="ay1code"> <pre class="brush:js;">&lt;vue-seamless-scroll&gt;&lt;/vue-seamless-scroll&gt;  import vueSeamlessScroll from 'vue-seamless-scroll'  components: {          vueSeamlessScroll  },</pre> </div> <p>3、配置参数</p> <div class="ay1code"> <pre class="brush:js;">// 监听属性 类似于data概念  computed: {          defaultOption () {                  return {                      step: 0.2, // 数值越大速度滚动越快                      limitMoveNum: 2, // 开始无缝滚动的数据量 this.dataList.length                      hoverStop: true, // 是否开启鼠标悬停stop                      direction: 1, // 0向下 1向上 2向左 3向右                      openWatch: true, // 开启数据实时监控刷新dom                      singleHeight: 0, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction =&gt; 0/1                      singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction =&gt; 2/3                      waitTime: 1000 // 单步运动停止的时间(默认值1000ms)                  }              }             },　</pre> </div> <p>4、完整实例代码</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;template&gt;      &lt;div class="" style="padding: 50px;"&gt;          &lt;div class="page-example3" style=""&gt;              &lt;vue-seamless-scroll :data="listData" :class-option="defaultOption" &gt;                  &lt;ul class="ul-scoll"&gt;                      &lt;li v-for="(item, index) in listData" :key='index'&gt;                          &lt;span class="title"&gt;{{item.title}}：&lt;/span&gt;&lt;span class="date"&gt;{{item.time}}&lt;/span&gt;                      &lt;/li&gt;                  &lt;/ul&gt;              &lt;/vue-seamless-scroll&gt;          &lt;/div&gt;      &lt;/div&gt;  &lt;/template&gt;     &lt;script&gt;      import vueSeamlessScroll from 'vue-seamless-scroll'      export default {          name: 'Example3',          data() {              // 这里存放数据              return {                  listData: []              }          },          // import引入的组件需要注入到对象中才能使用          components: {              vueSeamlessScroll          },          // 监听属性 类似于data概念          computed: {              defaultOption () {                  return {                      step: 1, // 数值越大速度滚动越快                      limitMoveNum: 2, // 开始无缝滚动的数据量 this.dataList.length                      hoverStop: true, // 是否开启鼠标悬停stop                      direction: 1, // 0向下 1向上 2向左 3向右                      openWatch: true, // 开启数据实时监控刷新dom                      singleHeight: 0, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction =&gt; 0/1                      singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction =&gt; 2/3                      waitTime: 1000 // 单步运动停止的时间(默认值1000ms)                  }              }             },          // 方法集合          methods: {},          // 监控data中的数据变化          watch: {},          // 生命周期 - 创建完成（可以访问当前this实例）          created() {             },          // 生命周期 - 挂载完成（可以访问DOM元素）          mounted() {              for(let i = 0 ; i &lt; 15 ; i++){                  let j = {                      title:'无缝滚动第几条啊啊啊-'+i,                      time: '2020-04-10'                  }                  this.listData.push(j)              }          }      }  &lt;/script&gt;     &lt;style scoped lang="scss"&gt;      //@import url(); 引入公共css类      .page-example3{          width: 400px;          height: 200px;          overflow: hidden;          border: 1px solid #283dff;          .ul-scoll{              li{                  margin: 6px;                  padding: 5px;                  background: rgba(198, 142, 226, 0.4);              }          }      }  &lt;/style&gt;</pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-26274.htm">宠物打疫苗前注意事项（宠物打疫苗前要注意什么）</a></p>
                                         <p>下一个：<a href="/news/article-26722.htm">申请动物诊疗机构提交的资料有哪些（申请动物诊疗机构的条件）</a></p>
@@ -96,16 +96,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-clash-node.htm" title="11月14日→20.2M/S|2024年最新免费节点Mac Clash订阅链接地址">11月14日→20.2M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-node-share-links.htm" title="10月25日→20.7M/S|2024年最新免费节点Mac Clash订阅链接地址">10月25日→20.7M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-28-clash-windows.htm" title="9月28日→20.3M/S|2024年最新免费节点Mac Clash订阅链接地址">9月28日→20.3M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-27187.htm" title="宠物医院收费价目表2023年11月（宠物医院服务项目价格表）">宠物医院收费价目表2023年11月（宠物医院服务项目价格表）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-ssr-node.htm" title="12月5日→22.6M/S|2024年最新免费节点Mac Clash订阅链接地址">12月5日→22.6M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-2-node-share-links.htm" title="10月2日→19.6M/S|2024年最新免费节点Mac Clash订阅链接地址">10月2日→19.6M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-node-share-links.htm" title="10月16日→20.1M/S|2024年最新免费节点Mac Clash订阅链接地址">10月16日→20.1M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24365.htm" title="附近领养宠物小猫的地方（附近领养宠物小狗）">附近领养宠物小猫的地方（附近领养宠物小狗）</a></li>
+                        <li class="py-2"><a href="/news/article-23013.htm" title="适合穷人养的猫粮（适合穷人养的猫粮有哪些）">适合穷人养的猫粮（适合穷人养的猫粮有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-node-share.htm" title="11月9日→20.6M/S|2024年最新免费节点Mac Clash订阅链接地址">11月9日→20.6M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-subscribe-node.htm" title="12月3日→20.3M/S|2024年最新免费节点Mac Clash订阅链接地址">12月3日→20.3M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22091.htm" title="请多多无货源店怎么开（拼多多无货源店怎么开）">请多多无货源店怎么开（拼多多无货源店怎么开）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-node-subscribe-links.htm" title="11月24日→18.7M/S|2024年最新免费节点Mac Clash订阅链接地址">11月24日→18.7M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23929.htm" title="广州宠物领养微信群微信号 广州宠物领养微信群微信号是多少">广州宠物领养微信群微信号 广州宠物领养微信群微信号是多少</a></li>
                         <li class="py-2"><a href="/news/article-20264.htm" title="Redis详解&#8212;Redis持久化_在线工具">Redis详解&#8212;Redis持久化_在线工具</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-23-node-share.htm" title="10月23日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址">10月23日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-25787.htm" title="编译python(cpython)的源码及其用途">编译python(cpython)的源码及其用途</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-clash-windows.htm" title="10月26日→21M/S|2024年最新免费节点Mac Clash订阅链接地址">10月26日→21M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20719.htm" title="Vue Tabbar 的封装">Vue Tabbar 的封装</a></li>
                     </ul>
     </div>
 </div>
@@ -117,7 +117,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -141,6 +141,15 @@
             <div class="row text-center">
                 <div class="col-md-12">
                     <div class="pt-5">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                         <p>
                             <a href="/">Mac Clash免费机场订阅节点官网</a> 版权所有 Powered by WordPress
                         </p>
