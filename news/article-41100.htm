@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://macclash.github.io/news/article-41100.htm" />
+    <title>.NET Core Hangfire任务计划_在线工具</title>
+        <meta name="description" content="安装Hangfire  新建ASP.NET Core空 项目，.Net Core版本3.1   往*.csproj添加包引用，添加新的PackageReference标记。如下所示。请注意，下面代码段" />
+        <link rel="icon" href="/assets/website/img/macclash/favicon.ico" type="image/x-icon"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/aos.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/style1.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BKMT4JJEWP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BKMT4JJEWP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <header class="site-navbar py-3 js-site-navbar site-navbar-target" role="banner" id="site-navbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 site-logo">
+                    <a href="/" class="text-white h2 mb-0">
+                                        <span class="mb-0">Mac Clash</span>
+                                        </a>
+                </div>
+                <div class="col-md-8 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                                        <li><a href="/" class="nav-link">首页</a></li>
+                                                        <li><a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                        <li><a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                        <li><a href="#" class="nav-link">关于</a></li>
+                            <li><a href="#" class="nav-link">联系</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    </header>
+    <div class="site-blocks-cover overlay" style="background-image: url(/assets/website/img/macclash/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+                    <h1 class="text-white font-weight-light text-uppercase font-weight-bold">
+                        .NET Core Hangfire任务计划_在线工具                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section" id="section-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<h2>安装Hangfire</h2> <p> 新建ASP.NET Core空 项目，.Net Core版本3.1</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220506/45731c43fb758a1e3cd964f5a9dc597b.jpg" alt=".NET Core Hangfire任务计划_在线工具"></p> <p> 往*.csproj添加包引用，添加新的PackageReference标记。如下所示。请注意，下面代码段中的版本可能已经过时，如有需要，请使用nuget获取最新版本。</p> <div class="cnblogs_code"> <pre>&lt;ItemGroup&gt;   &lt;PackageReference Include="Hangfire.Core" Version="1.7.28" /&gt;   &lt;PackageReference Include="Hangfire.SqlServer" Version="1.7.28" /&gt;   &lt;PackageReference Include="Hangfire.AspNetCore" Version="1.7.28" /&gt; &lt;/ItemGroup&gt;</pre> </div> <h2>创建数据库</h2> <p>从上面的代码片段中可以看到，在本文中，我们将使用SQL Server作为作业存储。在配置Hangfire之前，您需要为它创建一个数据库，或者使用现有的数据库。下面的配置字符串指向本地计算机上SQLEXPRESS实例中的HangfireTest数据库。</p> <p> </p> <p>您可以使用SQLServerManagementStudio或任何其他方式执行以下SQL命令。如果您使用的是其他数据库名称或实例，请确保在接下来的步骤中配置Hangfire时更改了连接字符串。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">CREATE DATABASE [HangfireTest] GO</span></pre> </div> <h2>配置Settings</h2> <p>下面将定义HangfireConnection连接来进行表迁移，同时AspNetCore与Hangfire进行了日志记录集成。Hangfire的日志信息有时非常重要，有助于诊断不同的问题。信息级别允许查看Hangfire的工作情况，警告和更高的日志级别有助于调查问题，建议调整日志级别</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">{   </span><span style="background-color: rgba(255, 255, 0, 1)"><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">ConnectionStrings</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">: {     </span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">HangfireConnection</span><span style="color: rgba(128, 0, 0, 1)">"</span>: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Server=.\\sqlexpress;Database=HangfireTest;Integrated Security=SSPI;</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">   }, </span></span><span style="color: rgba(128, 0, 0, 1)">  "</span><span style="color: rgba(128, 0, 0, 1)">Logging</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">: {     </span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">LogLevel</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">: {       </span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Default</span><span style="color: rgba(128, 0, 0, 1)">"</span>: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Warning</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">,       </span><span style="background-color: rgba(255, 255, 0, 1)"><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Hangfire</span><span style="color: rgba(128, 0, 0, 1)">"</span>: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Information</span><span style="color: rgba(128, 0, 0, 1)">"</span></span><span style="color: rgba(0, 0, 0, 1)">     }   } }</span></pre> </div> <p>更新应用程序设置后，打开Startup.cs文件。startup类是.NET CORE应用程序的配置。首先，我们需要导入Hangfire名称空间，由于建的是空项目，所以还需要导入Configuration.</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">using</span><span style="color: rgba(0, 0, 0, 1)"> Microsoft.Extensions.DependencyInjection;<br><span style="background-color: rgba(255, 255, 0, 1)">using Microsoft.Extensions.Configuration; </span></span><span style="color: rgba(0, 0, 255, 1); background-color: rgba(255, 255, 0, 1)">using</span><span style="background-color: rgba(255, 255, 0, 1)"> Hangfire; <span style="color: rgba(0, 0, 255, 1)">using</span> Hangfire.SqlServer;</span></pre> </div> <h3>注册服务</h3> <p>   使用asp.netcore内置DI注入Hangfire服务</p> <div class="cnblogs_code"> <p>public Startup(IConfiguration configuration)<br />  {<br />     Configuration = configuration;<br />  }</p> <p>  public IConfiguration Configuration { get; }</p> <pre>public void<span> ConfigureServices(IServiceCollection services) {     // Add Hangfire services.     services.AddHangfire(configuration =&gt;<span> configuration         .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)         .UseSimpleAssemblyNameTypeSerializer()         .UseRecommendedSerializerSettings()         .UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnection"), new<span> SqlServerStorageOptions         {             CommandBatchMaxTimeout = TimeSpan.FromMinutes(5<span>),             SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5<span>),             QueuePollInterval =<span> TimeSpan.Zero,             UseRecommendedIsolationLevel = true<span>,             DisableGlobalLocks = true<span>         }));      // Add the processing server as IHostedService     services.AddHangfireServer();<span> }</span></span></span></span></span></span></span></span></span></pre> <p> </p> </div> <h3>添加Hangfire面板</h3> <p>   如果只是作为后台作业，也可不使用面板功能，按需添加</p> <div class="cnblogs_code"> <pre> <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> Configure(IApplicationBuilder app, IWebHostEnvironment env)  {      app.UseRouting();      app.UseEndpoints(endpoints </span>=&gt;<span style="color: rgba(0, 0, 0, 1)">      {</span></pre> <p>         endpoints.MapGet("/", async context =&gt;<br />         {<br />            await context.Response.WriteAsync("Hello World!");<br />         });</p> <p>          <span style="background-color: rgba(255, 255, 0, 1)">endpoints.MapHangfireDashboard();</span></p> <pre><span style="color: rgba(0, 0, 0, 1)">     });<br></span></pre> <pre><span>     BackgroundJob.Enqueue(() =&gt; Console.WriteLine("测试"<span>));</span></span></pre> <pre><span style="color: rgba(0, 0, 0, 1)">}</span></pre> </div> <h2>运行程序</h2> <p> 生成数据表</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220506/7e029dbcd63b2848aa7f49518d9dd170.jpg" alt=".NET Core Hangfire任务计划_在线工具"></p> <p> </p> <p> </p> <p>  访问http://localhost:5000/hangfire<img decoding="async" src="http://img.555519.xyz/uploads3/20220506/78fc360389c44f23e250bdde7b593129.jpg" alt=".NET Core Hangfire任务计划_在线工具"></p> <h3>添加Hangfire面板授权</h3> <p>新建MyAuthorizationFilter.cs</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> MyAuthorizationFilter : IDashboardAuthorizationFilter     {         </span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">bool</span><span style="color: rgba(0, 0, 0, 1)"> Authorize(DashboardContext context)         {             </span><span style="color: rgba(0, 0, 255, 1)">var</span> httpContext =<span style="color: rgba(0, 0, 0, 1)"> context.GetHttpContext();             </span><span style="color: rgba(0, 0, 255, 1)">string</span> header = httpContext.Request.Headers[<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Authorization</span><span style="color: rgba(128, 0, 0, 1)">"</span>];<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">获取授权</span>             <span style="color: rgba(0, 0, 255, 1)">if</span>(header == <span style="color: rgba(0, 0, 255, 1)">null</span><span style="color: rgba(0, 0, 0, 1)">)                 </span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> AuthenicateLogin();             </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">解析授权</span>             <span style="color: rgba(0, 0, 255, 1)">var</span> authHeader =<span style="color: rgba(0, 0, 0, 1)"> AuthenticationHeaderValue.Parse(header);             </span><span style="color: rgba(0, 0, 255, 1)">var</span> credentialBytes =<span style="color: rgba(0, 0, 0, 1)"> Convert.FromBase64String(authHeader.Parameter);             </span><span style="color: rgba(0, 0, 255, 1)">var</span> credentials = Encoding.UTF8.GetString(credentialBytes).Split(<span style="color: rgba(0, 0, 255, 1)">new</span>[] { <span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">:</span><span style="color: rgba(128, 0, 0, 1)">'</span> }, <span style="color: rgba(128, 0, 128, 1)">2</span><span style="color: rgba(0, 0, 0, 1)">);             </span><span style="color: rgba(0, 0, 255, 1)">var</span> username = credentials[<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">];             </span><span style="color: rgba(0, 0, 255, 1)">var</span> password = credentials[<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">];             </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">验证登录</span>             <span style="color: rgba(0, 0, 255, 1)">if</span> (username == <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">admin</span><span style="color: rgba(128, 0, 0, 1)">"</span> &amp;&amp; password ==<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">123456</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">)                 </span><span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">;             </span><span style="color: rgba(0, 0, 255, 1)">else</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> AuthenicateLogin();             </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">跳转简单登录界面</span>             <span style="color: rgba(0, 0, 255, 1)">bool</span><span style="color: rgba(0, 0, 0, 1)"> AuthenicateLogin()             {                 httpContext.Response.StatusCode </span>= <span style="color: rgba(128, 0, 128, 1)">401</span><span style="color: rgba(0, 0, 0, 1)">;                 httpContext.Response.Headers.Append(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">WWW-Authenticate</span><span style="color: rgba(128, 0, 0, 1)">"</span>, <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Basic realm=\"Hangfire Dashboard\"</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);                 context.Response.WriteAsync(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Authenticatoin is required.</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);                 </span><span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">;             }                      }     }</span></pre> </div> <h3>Hangfire面板修改</h3> <div class="cnblogs_code"> <pre> <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> Configure(IApplicationBuilder app, IWebHostEnvironment env)  {             </span><span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)"> (env.IsDevelopment())             {                 app.UseDeveloperExceptionPage();             }              app.UseRouting();              app.UseEndpoints(endpoints </span>=&gt;<span style="color: rgba(0, 0, 0, 1)">             {</span></pre> <p>                 endpoints.MapHangfireDashboard(new DashboardOptions<br />                 {<br />                    Authorization = new[] { new MyAuthorizationFilter() }<br />                 });</p> <pre><span style="color: rgba(0, 0, 0, 1)">                endpoints.MapGet(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">/</span><span style="color: rgba(128, 0, 0, 1)">"</span>, <span style="color: rgba(0, 0, 255, 1)">async</span> context =&gt;<span style="color: rgba(0, 0, 0, 1)">                 {                     </span><span style="color: rgba(0, 0, 255, 1)">await</span> context.Response.WriteAsync(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Hello World!</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);                 });             });              BackgroundJob.Enqueue(() </span>=&gt; Console.WriteLine(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">测试</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">));    }</span></pre> </div> <h2>运行程序</h2> <div> <img decoding="async" src="https://img2022.cnblogs.com/blog/1342504/202205/1342504-20220506161729989-181205038.png" alt=".NET Core Hangfire任务计划_在线工具"></p> <p> </p> <p> <img decoding="async" src="http://img.555519.xyz/uploads3/20220506/2f0e51c2b5c42635e7bc47eaed7b86ac.jpg" alt=".NET Core Hangfire任务计划_在线工具"></p> <p> </p> <h3> 文档链接：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.hangfire.io/en/latest/getting-started/index.html"  target="_blank"  rel="nofollow">https://docs.hangfire.io/en/latest/getting-started/index.html</a><br /> </h3> </div> <p> </p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-40601.htm">做动物疫苗检验的是做什么的 做动物疫苗检验的是做什么的工作</a></p>
+                                        <p>下一个：<a href="/news/article-41101.htm">宠物粮食加工厂设备哪的好一点呢知乎（宠物粮食加工设备贵吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-free-node-subscribe-links.htm" title="12月29日→18.5M/S|2024年最新免费节点Mac Clash订阅链接地址">12月29日→18.5M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-29517.htm" title="58同城宠物网（专门卖宠物的app）">58同城宠物网（专门卖宠物的app）</a></li>
+                        <li class="py-2"><a href="/news/article-19806.htm" title="动物疫苗去哪打比较好 动物疫苗去哪打比较好呢">动物疫苗去哪打比较好 动物疫苗去哪打比较好呢</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-node-subscribe-links.htm" title="1月8日→21M/S|2025年最新免费节点Mac Clash订阅链接地址">1月8日→21M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30468.htm" title="宠物美容月薪多少（宠物美容工资高吗）">宠物美容月薪多少（宠物美容工资高吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-subscribe-node.htm" title="12月23日→22.1M/S|2024年最新免费节点Mac Clash订阅链接地址">12月23日→22.1M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-clash-windows.htm" title="11月3日→20M/S|2024年最新免费节点Mac Clash订阅链接地址">11月3日→20M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-clash.htm" title="10月14日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址">10月14日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-clash-windows.htm" title="10月27日→21.5M/S|2024年最新免费节点Mac Clash订阅链接地址">10月27日→21.5M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-node-share.htm" title="11月26日→22.7M/S|2024年最新免费节点Mac Clash订阅链接地址">11月26日→22.7M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="pt-5">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Mac Clash免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- </div> -->
+    <script src="/assets/website/js/frontend/macclash/jquery-3.3.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-ui.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.easing.1.3.js"></script>
+    <script src="/assets/website/js/frontend/macclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.stellar.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.countdown.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/aos.js"></script>
+    <script src="/assets/website/js/frontend/macclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
