@@ -1,13 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://macclash.github.io/news/article-20262.htm" />
     <title>Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作</title>
         <meta name="description" content="翻译该文的目的是为了让读者能够更好的理解Parquet文件的写入原理 Parquet文件是最流行的列式文件格式之一，它被用在很多工具上，如Apache Hive，Spark，Presto，Flink等" />
         <link rel="icon" href="/assets/website/img/macclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mac Clash免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://macclash.github.io/news/article-20262.htm" />
+    <meta property="og:site_name" content="Mac Clash免费机场订阅节点官网" />
+    <meta property="og:title" content="Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作" />
+    <meta property="og:image" content="https://macclash.github.io/uploads/20240926/3cab361a5e608b199a971280c52bf1df.webp" />
+        <meta property="og:release_date" content="2024-12-02T07:58:17" />
+    <meta property="og:updated_time" content="2024-12-02T07:58:17" />
+        <meta property="og:description" content="翻译该文的目的是为了让读者能够更好的理解Parquet文件的写入原理 Parquet文件是最流行的列式文件格式之一，它被用在很多工具上，如Apache Hive，Spark，Presto，Flink等" />
+        
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
     <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
@@ -96,16 +124,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-30468.htm" title="宠物美容月薪多少（宠物美容工资高吗）">宠物美容月薪多少（宠物美容工资高吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-node-subscribe.htm" title="11月20日→21.9M/S|2024年最新免费节点Mac Clash订阅链接地址">11月20日→21.9M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-22-node-share.htm" title="10月22日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址">10月22日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-10-node-share.htm" title="12月10日→21.6M/S|2024年最新免费节点Mac Clash订阅链接地址">12月10日→21.6M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-18889.htm" title="领养宠物需要签协议吗合法吗现在（领养狗狗要签协议吗）">领养宠物需要签协议吗合法吗现在（领养狗狗要签协议吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-node-subscribe-links.htm" title="11月24日→18.7M/S|2024年最新免费节点Mac Clash订阅链接地址">11月24日→18.7M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-9-node-share.htm" title="11月9日→20.6M/S|2024年最新免费节点Mac Clash订阅链接地址">11月9日→20.6M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-subscribe-node.htm" title="12月23日→22.1M/S|2024年最新免费节点Mac Clash订阅链接地址">12月23日→22.1M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-30-node-share.htm" title="10月30日→18M/S|2024年最新免费节点Mac Clash订阅链接地址">10月30日→18M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-23-node-share.htm" title="10月23日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址">10月23日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-node-subscribe-links.htm" title="11月12日→19.6M/S|2024年最新免费节点Mac Clash订阅链接地址">11月12日→19.6M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50063.htm" title="动物医学职业资格证书（动物医学医师证）">动物医学职业资格证书（动物医学医师证）</a></li>
+                        <li class="py-2"><a href="/news/article-28579.htm" title=".NET MAUI RC2 发布，支持 Tizen 平台">.NET MAUI RC2 发布，支持 Tizen 平台</a></li>
+                        <li class="py-2"><a href="/news/article-20719.htm" title="Vue Tabbar 的封装">Vue Tabbar 的封装</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-node-share.htm" title="1月11日→22.6M/S|2025年最新免费节点Mac Clash订阅链接地址">1月11日→22.6M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30467.htm" title="同安宠物领养中心地址电话多少（同安宠物领养中心地址电话多少号）">同安宠物领养中心地址电话多少（同安宠物领养中心地址电话多少号）</a></li>
+                        <li class="py-2"><a href="/news/article-26722.htm" title="申请动物诊疗机构提交的资料有哪些（申请动物诊疗机构的条件）">申请动物诊疗机构提交的资料有哪些（申请动物诊疗机构的条件）</a></li>
+                        <li class="py-2"><a href="/news/article-33801.htm" title="河南兽药50强企业名单（河南兽药企业名录）">河南兽药50强企业名单（河南兽药企业名录）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-node-share-links.htm" title="12月28日→19.5M/S|2024年最新免费节点Mac Clash订阅链接地址">12月28日→19.5M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-42602.htm" title="python读取HDFS文件">python读取HDFS文件</a></li>
                     </ul>
     </div>
 </div>
@@ -117,19 +145,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">5</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

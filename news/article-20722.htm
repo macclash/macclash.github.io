@@ -1,13 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://macclash.github.io/news/article-20722.htm" />
     <title>极品vue3中setup的细节,以及定义多个响应式reactive</title>
         <meta name="description" content="vue3 setup reactive作用: 定义多个数据的响应式 const proxy = reactive(obj): 接收一个普通对象然后返回该普通对象的响应式代理器对象 响应式转换是“深层的" />
         <link rel="icon" href="/assets/website/img/macclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mac Clash免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://macclash.github.io/news/article-20722.htm" />
+    <meta property="og:site_name" content="Mac Clash免费机场订阅节点官网" />
+    <meta property="og:title" content="极品vue3中setup的细节,以及定义多个响应式reactive" />
+    <meta property="og:image" content="https://macclash.github.io/uploads/20240926/485f58cf6b4279f022d2253c4561dffa.webp" />
+        <meta property="og:release_date" content="2024-12-03T00:15:18" />
+    <meta property="og:updated_time" content="2024-12-03T00:15:18" />
+        <meta property="og:description" content="vue3 setup reactive作用: 定义多个数据的响应式 const proxy = reactive(obj): 接收一个普通对象然后返回该普通对象的响应式代理器对象 响应式转换是“深层的" />
+        
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="极品vue3中setup的细节,以及定义多个响应式reactive">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
     <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
@@ -96,16 +124,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-25329.htm" title="三国杀武将登场特效必须是动态皮肤吗为什么（三国杀出场特效）">三国杀武将登场特效必须是动态皮肤吗为什么（三国杀出场特效）</a></li>
-                        <li class="py-2"><a href="/news/article-24365.htm" title="附近领养宠物小猫的地方（附近领养宠物小狗）">附近领养宠物小猫的地方（附近领养宠物小狗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-clash.htm" title="12月21日→21.8M/S|2024年最新免费节点Mac Clash订阅链接地址">12月21日→21.8M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-29975.htm" title="开宠物用品店需要多少钱（开宠物用品店需要多少钱）">开宠物用品店需要多少钱（开宠物用品店需要多少钱）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-high-speed-nodes.htm" title="10月15日→22.7M/S|2024年最新免费节点Mac Clash订阅链接地址">10月15日→22.7M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-24364.htm" title="spring security 权限(注解)">spring security 权限(注解)</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-subscribe-node.htm" title="12月11日→22.3M/S|2024年最新免费节点Mac Clash订阅链接地址">12月11日→22.3M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-23929.htm" title="广州宠物领养微信群微信号 广州宠物领养微信群微信号是多少">广州宠物领养微信群微信号 广州宠物领养微信群微信号是多少</a></li>
-                        <li class="py-2"><a href="/news/article-18888.htm" title="一步一步生成滑动验证码图片详解">一步一步生成滑动验证码图片详解</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-28-clash-windows.htm" title="9月28日→20.3M/S|2024年最新免费节点Mac Clash订阅链接地址">9月28日→20.3M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-node-subscribe-links.htm" title="11月29日→22.2M/S|2024年最新免费节点Mac Clash订阅链接地址">11月29日→22.2M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22091.htm" title="请多多无货源店怎么开（拼多多无货源店怎么开）">请多多无货源店怎么开（拼多多无货源店怎么开）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-clash-windows.htm" title="11月15日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址">11月15日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-49533.htm" title="三国杀里面限定技（三国杀限定技能是什么意思）">三国杀里面限定技（三国杀限定技能是什么意思）</a></li>
+                        <li class="py-2"><a href="/news/article-40113.htm" title="宠物粮食加工厂什么岗位比较好干 宠物粮食加工厂什么岗位比较好干呢">宠物粮食加工厂什么岗位比较好干 宠物粮食加工厂什么岗位比较好干呢</a></li>
+                        <li class="py-2"><a href="/news/article-25789.htm" title="宠物狗可以自己打疫苗吗（宠物狗能自己打疫苗吗）">宠物狗可以自己打疫苗吗（宠物狗能自己打疫苗吗）</a></li>
+                        <li class="py-2"><a href="/news/article-48408.htm" title="宠物犬领养平台电话（宠物领养站哪里有）">宠物犬领养平台电话（宠物领养站哪里有）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-ssr-node.htm" title="12月5日→22.6M/S|2024年最新免费节点Mac Clash订阅链接地址">12月5日→22.6M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-node-share-links.htm" title="12月1日→18.2M/S|2024年最新免费节点Mac Clash订阅链接地址">12月1日→18.2M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23458.htm" title="Python，如何将元组中的元素作为参数传入函数">Python，如何将元组中的元素作为参数传入函数</a></li>
                     </ul>
     </div>
 </div>
@@ -117,19 +145,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">5</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

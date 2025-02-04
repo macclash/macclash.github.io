@@ -1,13 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://macclash.github.io/news/article-20264.htm" />
     <title>Redis详解&#8212;Redis持久化_在线工具</title>
         <meta name="description" content="Redis持久化 redis提供了两种持久化的方式，分别是RDB（Redis DataBase）和AOF（Append Only File）。 RDB，简而言之，就是在不同的时间点，将redis存储的" />
         <link rel="icon" href="/assets/website/img/macclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mac Clash免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://macclash.github.io/news/article-20264.htm" />
+    <meta property="og:site_name" content="Mac Clash免费机场订阅节点官网" />
+    <meta property="og:title" content="Redis详解&#8212;Redis持久化_在线工具" />
+    <meta property="og:image" content="https://macclash.github.io/uploads/20240926/485f58cf6b4279f022d2253c4561dffa.webp" />
+        <meta property="og:release_date" content="2024-12-02T07:58:17" />
+    <meta property="og:updated_time" content="2024-12-02T07:58:17" />
+        <meta property="og:description" content="Redis持久化 redis提供了两种持久化的方式，分别是RDB（Redis DataBase）和AOF（Append Only File）。 RDB，简而言之，就是在不同的时间点，将redis存储的" />
+        
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Redis详解&#8212;Redis持久化_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
     <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
@@ -96,16 +124,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-26722.htm" title="申请动物诊疗机构提交的资料有哪些（申请动物诊疗机构的条件）">申请动物诊疗机构提交的资料有哪些（申请动物诊疗机构的条件）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-clash-node.htm" title="11月14日→20.2M/S|2024年最新免费节点Mac Clash订阅链接地址">11月14日→20.2M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-4-free-high-speed-nodes.htm" title="12月4日→20.8M/S|2024年最新免费节点Mac Clash订阅链接地址">12月4日→20.8M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-31313.htm" title="宠物猫打不打疫苗（宠物猫不打预防针会怎么样）">宠物猫打不打疫苗（宠物猫不打预防针会怎么样）</a></li>
-                        <li class="py-2"><a href="/news/article-26274.htm" title="宠物打疫苗前注意事项（宠物打疫苗前要注意什么）">宠物打疫苗前注意事项（宠物打疫苗前要注意什么）</a></li>
-                        <li class="py-2"><a href="/news/article-18889.htm" title="领养宠物需要签协议吗合法吗现在（领养狗狗要签协议吗）">领养宠物需要签协议吗合法吗现在（领养狗狗要签协议吗）</a></li>
-                        <li class="py-2"><a href="/news/article-24365.htm" title="附近领养宠物小猫的地方（附近领养宠物小狗）">附近领养宠物小猫的地方（附近领养宠物小狗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-clash.htm" title="12月2日→18.7M/S|2024年最新免费节点Mac Clash订阅链接地址">12月2日→18.7M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share-links.htm" title="12月13日→21.8M/S|2024年最新免费节点Mac Clash订阅链接地址">12月13日→21.8M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-32364.htm" title="宠物粮食品牌前十排名有哪些品种图片（宠物粮食品牌都有什么）">宠物粮食品牌前十排名有哪些品种图片（宠物粮食品牌都有什么）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-subscribe-node.htm" title="11月27日→21.8M/S|2024年最新免费节点Mac Clash订阅链接地址">11月27日→21.8M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-clash.htm" title="12月17日→20.8M/S|2024年最新免费节点Mac Clash订阅链接地址">12月17日→20.8M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-node-subscribe.htm" title="11月7日→21.2M/S|2024年最新免费节点Mac Clash订阅链接地址">11月7日→21.2M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-node-subscribe-links.htm" title="12月9日→20.7M/S|2024年最新免费节点Mac Clash订阅链接地址">12月9日→20.7M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-44086.htm" title="经营动物疫苗药品需要什么手续（经营动物疫苗药品需要什么手续呢）">经营动物疫苗药品需要什么手续（经营动物疫苗药品需要什么手续呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-clash-node.htm" title="1月2日→20.2M/S|2025年最新免费节点Mac Clash订阅链接地址">1月2日→20.2M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-subscribe-node.htm" title="12月11日→22.3M/S|2024年最新免费节点Mac Clash订阅链接地址">12月11日→22.3M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27187.htm" title="宠物医院收费价目表2023年11月（宠物医院服务项目价格表）">宠物医院收费价目表2023年11月（宠物医院服务项目价格表）</a></li>
+                        <li class="py-2"><a href="/news/article-24865.htm" title="宠物粮食加工厂加盟电话地址是多少 宠物粮食加工厂加盟电话地址是多少号">宠物粮食加工厂加盟电话地址是多少 宠物粮食加工厂加盟电话地址是多少号</a></li>
+                        <li class="py-2"><a href="/news/article-22088.htm" title="猫丢了3天还会在附近吗（丢了猫千万别找为什么）">猫丢了3天还会在附近吗（丢了猫千万别找为什么）</a></li>
                     </ul>
     </div>
 </div>
@@ -117,19 +145,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">5</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
