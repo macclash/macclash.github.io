@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://macclash.github.io/news/article-63468.htm" />
+    <title>Java基础之浅谈接口</title>
+        <meta name="description" content="前几篇文章我们已经把Java的封装、继承、多态学习完了，现在我们开始比较便于我们实际操作的学习，虽然它也是Java基础部分，但是其实入门容易，精通很难。 我认真的给大家整理了一下这些必须学会、了解的知" />
+        <link rel="icon" href="/assets/website/img/macclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mac Clash免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://macclash.github.io/news/article-63468.htm" />
+    <meta property="og:site_name" content="Mac Clash免费机场订阅节点官网" />
+    <meta property="og:title" content="Java基础之浅谈接口" />
+    <meta property="og:image" content="https://macclash.github.io/uploads/20240926/a6feb24dfb82d98d7ce44c080fe60414.webp" />
+        <meta property="og:release_date" content="2025-02-26T08:35:26" />
+    <meta property="og:updated_time" content="2025-02-26T08:35:26" />
+        <meta property="og:description" content="前几篇文章我们已经把Java的封装、继承、多态学习完了，现在我们开始比较便于我们实际操作的学习，虽然它也是Java基础部分，但是其实入门容易，精通很难。 我认真的给大家整理了一下这些必须学会、了解的知" />
+        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java基础之浅谈接口">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/aos.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/style1.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BKMT4JJEWP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BKMT4JJEWP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <header class="site-navbar py-3 js-site-navbar site-navbar-target" role="banner" id="site-navbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 site-logo">
+                    <a href="/" class="text-white h2 mb-0">
+                                        <span class="mb-0">Mac Clash</span>
+                                        </a>
+                </div>
+                <div class="col-md-8 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                                        <li><a href="/" class="nav-link">首页</a></li>
+                                                        <li><a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                        <li><a href="/client.htm" class="nav-link">客户端</a></li>
+                                                        <li><a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    </header>
+    <div class="site-blocks-cover overlay" style="background-image: url(/assets/website/img/macclash/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+                    <h1 class="text-white font-weight-light text-uppercase font-weight-bold">
+                        Java基础之浅谈接口                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section" id="section-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				</h1> <ul> <li>前几篇文章我们已经把Java的封装、继承、多态学习完了，现在我们开始比较便于我们实际操作的学习，虽然它也是Java基础部分，但是其实入门容易，精通很难。</li> <li>我认真的给大家整理了一下这些必须学会、了解的知识点。<br /> -下面我们正式进入正题吧&lt;(￣︶￣)↗[GO!]</li> </ul> </h1> <h2 id="1接口的概念">1.接口的概念</h2> <ul> <li>接口：接口并不是类，而是帮助类去实现功能的一种技术。</li> <li>如果你的类符合某个特定的接口，我就会履行这项服务。</li> <li>定义接口我们可以使用<strong>interface</strong>关键字</li> <li>将类声明为实现某个接口可以用<strong>implements</strong></li> </ul> <h2 id="2什么是实例字段">2.什么是实例字段</h2> <ul> <li>先说字段，什么是字段？</li> <li>字段是属于类的，它是会用public、private等关键字修饰的。而变量就是我们通常定义的int a这样的，它没有访问控制符；</li> <li>所以实例字段就是我们构造器中的，也就可以理解为没用构造方法。</li> </ul> <h2 id="3接口的特点">3.接口的特点</h2> <ul> <li>接口中的所有方法都自动是public的，因此在接口中我们可以省略public关键字</li> <li>Java中接口不会有实例字段，可以将接口看成没用实例字段的抽象类。</li> <li>接口中的字段总是public static final的</li> <li>Java中虽然不能够多继承，但是可以用一个类实现多个接口，从而达到了多继承的效果。(这也是接口和抽象类的概念，虽然接口中在JDK8之前是抽象的，但是抽象类只能被继承一个，而接口可以被实现多个)</li> <li>在接口中现在实现了定义方法内容，但是需要用到default、和static关键字才可以。</li> <li>在我们类重写接口方法时，我们不可以省略public关键字</li> </ul> </h1> <ul> <li>根据上面接口的特点，现在我们来演示一下，接口到底是怎么使用的。</li> </ul> <pre><code>public interface InterfaceTest {     int a = 0;     public static final int b = 0;//public static final可以省略不写     void sum1();     public abstract void sum2();// public abstract可以省略不写     static void test1() {         System.out.println("static可以实现在接口中定义方法内容，此方法不推荐具体用法可自行学习，这也是Java8的新特性");     }     default void test2() {         System.out.println("default可以实现在接口中定义方法内容,并且此方法没必要去类中实现");     } } class Test1 implements InterfaceTest{     @Override     public void sum1() {         System.out.println("此方法必须在类中去实现");     }     @Override     public void sum2() {         System.out.println("此方法必须在类中去实现");     } }</code></pre> <ul> <li>接口的属性：</li> </ul> <ol> <li>接口不是类，所以不可以使用new运算符实例化一个接口。x = new Comparable();❌</li> <li>但是我们可以使用接口去声明一个变量 Comparable x;✔</li> <li>我们可以使用接口变量去引用实现了这个接口的类</li> </ol> <pre><code>public static void main(String[] args) {         InterfaceTest inter = new Test1();//跟多态差不多         if(inter instanceof InterfaceTest) {//同样可以使用instanceof判断，这个肯定为true了             inter.sum1();             inter.sum2();             inter.test2();         }     }</code></pre> <ul> <li>实现多接口的写法：<code>public class Employee extends Person implements Comparable,Collection,...</code></li> </ul> </h1> <ul> <li>产生原因：一个类继承了另一个类的同时，又实现了一个接口，当此接口于父类都拥有相同的方法时，他就会产生冲突，那么会哪个优先呢？我们来看一下吧</li> </ul> <pre><code>class Father {     public void sum1() {         System.out.println("我是父亲的sum1");     }     public void test2() {         System.out.println("我是父亲的test2");     } } class Son extends Father implements InterfaceTest{     @Override     public void sum1() {//在我们重写方法是不可以省略public         System.out.println("此方法必须在类中去实现，我是儿子sum1");     }     @Override     public void sum2() {         System.out.println("此方法必须在类中去实现");     }      public static void main(String[] args) {         InterfaceTest inter = new Son();         if(inter instanceof InterfaceTest) {             inter.sum1();//经过测试发现，和多态性一样，优先调用子类             inter.sum2();             inter.test2();//经过测试发现，这个default的情况是，父类优先         }     } }</code></pre> <ul> <li>最终就是记住“类优先”原则。</li> </ul> </h1> <ul> <li>如果说父类实现了某个接口，那么子类继承父类时候，自然实现了该接口，没用必要再实现了。</li> <li>在我刚接触这个"<strong>接口回调</strong>"一次时，我觉得非常的高大上。</li> <li>其实就是简单的多态应用</li> <li>假设Com是一个接口，ImpleCom()是该接口的实现类，则<code>Com c = new ImpleCom();</code></li> <li>在调用方法是仍然和多态一样。可以把实现某一接口的类创建的对象的引用赋值给该接口声明的接口变量----&gt;<code>Com c = new ImpleCom();</code>，那么该接口变量 c 就可以调用被类实现的接口方法以及接口提供的default方法或者类重写的default方法。<br /><strong>其实真没啥可说的，就是这个 c 既可以调用从接口那里实现过来的方法，也可以调用自身的方法。</strong></li> </ul> </h1> <ul> <li>对于接口内容就总结这么多，希望大家可以多多练习。如果有不足之处，希望大家多多包涵，多多支持。如果有不懂的地方可以直接私信问我，欢迎来访！<br /><strong>其实应该还有Lambda表达式，以及内部类的内容，但是这部分在基础中并不常用，我决定在后面补给大家。</strong></li> <li>我将会继续更新关于Java的学习知识，感兴趣的小伙伴可以关注一下。</li> <li>文章写得比较走心，用了很长时间，绝对不是copy过来的！</li> <li>尊重每一位学习知识的人，同时也尊重每一位分享知识的人。</li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-63467.htm">react项目配置postcss-px2rem-exclude</a></p>
+                                        <p>下一个：<a href="/news/article-64083.htm">南京宠物托运服务价格（南京托运宠物快递公司）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-free-node-subscribe-links.htm" title="12月29日→18.5M/S|2024年最新免费节点Mac Clash订阅链接地址">12月29日→18.5M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22553.htm" title="Caused by: java.lang.ClassNotFoundException: springfox.documentation.schema.ModelReference 错误解决">Caused by: java.lang.ClassNotFoundException: springfox.documentation.schema.ModelReference 错误解决</a></li>
+                        <li class="py-2"><a href="/news/article-40112.htm" title="人机验证reCAPTCHA v3使用完备说明">人机验证reCAPTCHA v3使用完备说明</a></li>
+                        <li class="py-2"><a href="/news/article-30468.htm" title="宠物美容月薪多少（宠物美容工资高吗）">宠物美容月薪多少（宠物美容工资高吗）</a></li>
+                        <li class="py-2"><a href="/news/article-45586.htm" title="东北农大动物医院贵吗（东北农大动物医院好吗）">东北农大动物医院贵吗（东北农大动物医院好吗）</a></li>
+                        <li class="py-2"><a href="/news/article-38625.htm" title="宠物助理医师在哪报名（宠物助理医师证）">宠物助理医师在哪报名（宠物助理医师证）</a></li>
+                        <li class="py-2"><a href="/news/article-52691.htm" title="正确计算linux系统内存使用率">正确计算linux系统内存使用率</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-clash.htm" title="1月4日→20.1M/S|2025年最新免费节点Mac Clash订阅链接地址">1月4日→20.1M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-51651.htm" title="动物医院连锁机构 动物医院连锁机构有哪些">动物医院连锁机构 动物医院连锁机构有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-node-share-links.htm" title="11月18日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址">11月18日→21.1M/S|2024年最新免费节点Mac Clash订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="pt-5">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Mac Clash免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- </div> -->
+    <script src="/assets/website/js/frontend/macclash/jquery-3.3.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-ui.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.easing.1.3.js"></script>
+    <script src="/assets/website/js/frontend/macclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.stellar.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.countdown.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/aos.js"></script>
+    <script src="/assets/website/js/frontend/macclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
