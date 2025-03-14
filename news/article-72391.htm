@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://macclash.github.io/news/article-72391.htm" />
+    <title>Kafka的零拷贝原理解析</title>
+        <meta name="description" content="最近一个学员去滴滴面试，在第二面的时候遇到了这个问题： "请你简单说一下Kafka的零拷贝原理" 然后那个学员努力在大脑里检索了很久，没有回答上来。 那么今天，我们基于这个问题来看看，普通人和高手是如" />
+        <link rel="icon" href="/assets/website/img/macclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mac Clash免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://macclash.github.io/news/article-72391.htm" />
+    <meta property="og:site_name" content="Mac Clash免费机场订阅节点官网" />
+    <meta property="og:title" content="Kafka的零拷贝原理解析" />
+    <meta property="og:image" content="https://macclash.github.io/uploads/20240926/728b647f8e4b43346dfa2d194f624ecf.webp" />
+        <meta property="og:release_date" content="2025-03-12T06:09:03" />
+    <meta property="og:updated_time" content="2025-03-12T06:09:03" />
+        <meta property="og:description" content="最近一个学员去滴滴面试，在第二面的时候遇到了这个问题： "请你简单说一下Kafka的零拷贝原理" 然后那个学员努力在大脑里检索了很久，没有回答上来。 那么今天，我们基于这个问题来看看，普通人和高手是如" />
+        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Kafka的零拷贝原理解析">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/aos.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/style1.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BKMT4JJEWP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BKMT4JJEWP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <header class="site-navbar py-3 js-site-navbar site-navbar-target" role="banner" id="site-navbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 site-logo">
+                    <a href="/" class="text-white h2 mb-0">
+                                        <span class="mb-0">Mac Clash</span>
+                                        </a>
+                </div>
+                <div class="col-md-8 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                                        <li><a href="/" class="nav-link">首页</a></li>
+                                                        <li><a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                        <li><a href="/client.htm" class="nav-link">客户端</a></li>
+                                                        <li><a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    </header>
+    <div class="site-blocks-cover overlay" style="background-image: url(/assets/website/img/macclash/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+                    <h1 class="text-white font-weight-light text-uppercase font-weight-bold">
+                        Kafka的零拷贝原理解析                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section" id="section-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<blockquote> <p>最近一个学员去滴滴面试，在第二面的时候遇到了这个问题：<br /> "请你简单说一下Kafka的零拷贝原理"<br /> 然后那个学员努力在大脑里检索了很久，没有回答上来。<br /> 那么今天，我们基于这个问题来看看，普通人和高手是如何回答的！</p> </blockquote> <p><strong>普通人的回答：</strong></p> <p>零拷贝是一种减少数据拷贝的机制，能够有效提升数据的效率</p> <p><strong>高手的回答：</strong></p> <p>在实际应用中，如果我们需要把磁盘中的某个文件内容发送到远程服务器上，如图</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f95555d844e4651661bc42693fe9abd1.jpg" alt="Kafka的零拷贝原理解析"></p> <p>那么它必须要经过几个拷贝的过程:</p> <ol> <li>从磁盘中读取目标文件内容拷贝到内核缓冲区</li> <li>CPU控制器再把内核缓冲区的数据赋值到用户空间的缓冲区中</li> <li>接着在应用程序中，调用<code>write()</code>方法，把用户空间缓冲区中的数据拷贝到内核下的Socket Buffer中。</li> <li>最后，把在内核模式下的SocketBuffer中的数据赋值到网卡缓冲区（NIC Buffer)</li> <li>网卡缓冲区再把数据传输到目标服务器上。</li> </ol> <p> 在这个过程中我们可以发现，数据从磁盘到最终发送出去，要经历4次拷贝，而在这四次拷贝过程中，有两次拷贝是浪费的，分别是：</p> <ol> <li>从内核空间赋值到用户空间</li> <li>从用户空间再次复制到内核空间</li> </ol> <p>除此之外，由于用户空间和内核空间的切换会带来CPU的上线文切换，对于CPU性能也会造成性能影响。</p> <p>而零拷贝，就是把这两次多于的拷贝省略掉，应用程序可以直接把磁盘中的数据从内核中直接传输给Socket，而不需要再经过应用程序所在的用户空间，如下图所示。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/967edc788fde4945265e123be7ee9d77.jpg" alt="Kafka的零拷贝原理解析"></p> <p>零拷贝通过DMA（Direct Memory Access）技术把文件内容复制到内核空间中的Read Buffer。</p> <p>接着把包含数据位置和长度信息的文件描述符加载到Socket Buffer中，DMA引擎直接可以把数据从内核空间中传递给网卡设备。</p> <p>在这个流程中，数据只经历了两次拷贝就发送到了网卡中，并且减少了2次cpu的上下文切换，对于效率有非常大的提高。</p> <p>所以，所谓零拷贝，并不是完全没有数据赋值，只是相对于用户空间来说，不再需要进行数据拷贝。对于前面说的整个流程来说，零拷贝只是减少了不必要的拷贝次数而已。</p> <p>在程序中如何实现零拷贝呢？</p> <ul> <li>在Linux中，零拷贝技术依赖于底层的sendfile()方法实现</li> <li>在Java中，FileChannal.transferTo() 方法的底层实现就是 sendfile() 方法。</li> </ul> <p>除此之外，还有一个 mmap 的文件映射机制</p> <p>它的原理是：将磁盘文件映射到内存, 用户通过修改内存就能修改磁盘文件。使用这种方式可以获取很大的I/O提升，省去了用户空间到内核空间复制的开销。</p> <p>以上就是我对于Kafka中零拷贝原理的理解</p> <p><strong>总结</strong></p> <p>本期的普通人VS高手面试系列就到这里结束了。</p> <p>本次的面试题涉及到一些计算机底层的原理，基本上也是业务程序员的知识盲区。</p> <p>但我想提醒大家，做开发其实和建房子一样，要想楼层更高更稳，首先地基要打牢固。</p> <p>另外，如果你有任何面试相关的疑问，欢迎评论区给我留言。</p> <p>我是Mic，一个工作了14年的Java程序员，咱们下篇文章再见。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-71740.htm">天宠宠物医院可靠么（天宠加盟费用大概多少）</a></p>
+                                        <p>下一个：<a href="/news/article-72394.htm">动物医院诊疗许可证需要提供什么资料和材料呢（动物医院办理条件）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-47527.htm" title="穷人家适合养什么宠物狗（穷人家适合养什么宠物狗好）">穷人家适合养什么宠物狗（穷人家适合养什么宠物狗好）</a></li>
+                        <li class="py-2"><a href="/news/article-47528.htm" title="哈尔滨农大宠物医院（哈尔滨农大宠物医院的地址和电话）">哈尔滨农大宠物医院（哈尔滨农大宠物医院的地址和电话）</a></li>
+                        <li class="py-2"><a href="/news/article-53226.htm" title="java字符串三种空字符串null、new String()、&#8221;&#8221;的区别">java字符串三种空字符串null、new String()、&#8221;&#8221;的区别</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-clash-windows.htm" title="2月15日→18M/S|2025年最新免费节点Mac Clash订阅链接地址">2月15日→18M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-high-speed-nodes.htm" title="1月29日→22.2M/S|2025年最新免费节点Mac Clash订阅链接地址">1月29日→22.2M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-free-node-subscribe.htm" title="3月8日→21.1M/S|2025年最新免费节点Mac Clash订阅链接地址">3月8日→21.1M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-55422.htm" title="咸鱼无货源赚钱吗知乎（咸鱼无货源卖东西）">咸鱼无货源赚钱吗知乎（咸鱼无货源卖东西）</a></li>
+                        <li class="py-2"><a href="/news/article-50583.htm" title="动物注射疫苗的流程是什么呢（动物疫苗接种方法有哪些）">动物注射疫苗的流程是什么呢（动物疫苗接种方法有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-35731.htm" title="动物疫苗行业龙头股票有哪些 动物疫苗行业龙头股票有哪些公司">动物疫苗行业龙头股票有哪些 动物疫苗行业龙头股票有哪些公司</a></li>
+                        <li class="py-2"><a href="/news/article-41100.htm" title=".NET Core Hangfire任务计划_在线工具">.NET Core Hangfire任务计划_在线工具</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="pt-5">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Mac Clash免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- </div> -->
+    <script src="/assets/website/js/frontend/macclash/jquery-3.3.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-ui.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.easing.1.3.js"></script>
+    <script src="/assets/website/js/frontend/macclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.stellar.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.countdown.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/aos.js"></script>
+    <script src="/assets/website/js/frontend/macclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
