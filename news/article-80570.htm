@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://macclash.github.io/news/article-80570.htm" />
+    <title>PHP可见性模式</title>
+        <meta name="description" content="介绍 在PHP中，可以使用class关键字具有用户定义的compund数据类型。类的新实例是一个对象。对象的特性按照类的定义，可以包含属性，常量和方法成员。 类成员的可访问性（也称为可见性）取决于其定" />
+        <link rel="icon" href="/assets/website/img/macclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mac Clash免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://macclash.github.io/news/article-80570.htm" />
+    <meta property="og:site_name" content="Mac Clash免费机场订阅节点官网" />
+    <meta property="og:title" content="PHP可见性模式" />
+    <meta property="og:image" content="https://macclash.github.io/uploads/20240926/485f58cf6b4279f022d2253c4561dffa.webp" />
+        <meta property="og:release_date" content="2025-03-24T08:22:02" />
+    <meta property="og:updated_time" content="2025-03-24T08:22:02" />
+        <meta property="og:description" content="介绍 在PHP中，可以使用class关键字具有用户定义的compund数据类型。类的新实例是一个对象。对象的特性按照类的定义，可以包含属性，常量和方法成员。 类成员的可访问性（也称为可见性）取决于其定" />
+        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PHP可见性模式">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/aos.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/style1.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BKMT4JJEWP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BKMT4JJEWP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <header class="site-navbar py-3 js-site-navbar site-navbar-target" role="banner" id="site-navbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 site-logo">
+                    <a href="/" class="text-white h2 mb-0">
+                                        <span class="mb-0">Mac Clash</span>
+                                        </a>
+                </div>
+                <div class="col-md-8 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                                        <li><a href="/" class="nav-link">首页</a></li>
+                                                        <li><a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                        <li><a href="/client.htm" class="nav-link">客户端</a></li>
+                                                        <li><a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    </header>
+    <div class="site-blocks-cover overlay" style="background-image: url(/assets/website/img/macclash/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+                    <h1 class="text-white font-weight-light text-uppercase font-weight-bold">
+                        PHP可见性模式                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section" id="section-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<h2>介绍</h2> <p>在PHP中，可以使用<strong>class</strong>关键字具有用户定义的compund数据类型。类的新实例是一个对象。对象的特性按照类的定义，可以包含属性，常量和方法成员。</p> <p>类成员的可访问性（也称为可见性）取决于其定义中附加的可见性前缀关键字。PHP具有三个可见性关键字<strong>-public</strong>，<strong>private</strong>和<strong>protected</strong>。任何地方都可以访问用public关键字声明的类成员。受保护的成员可以从其类内部或通过继承类进行访问。另一方面，私有成员只能由定义了私有成员的同一个类访问，并且外部的任何成员都不可见。</p> <h2>属性可见度</h2> <p>属性是类实例的属性。它可以是实例属性（每个对象具有不同的值）或类属性，每个对象具有相同的值。属性可以是任何有效的PHP数据类型。默认情况下，属性具有公共可见性。如果使用var关键字定义了属性（现已弃用），则将其视为public。</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;myclass{ &nbsp;&nbsp;&nbsp;public&nbsp;$fname="Ajay"; &nbsp;&nbsp;&nbsp;var&nbsp;$lname;&nbsp;//treated&nbsp;as&nbsp;public &nbsp;&nbsp;&nbsp;private&nbsp;$marks=100; &nbsp;&nbsp;&nbsp;protected&nbsp;$age=20; } $obj=new&nbsp;myclass(); echo&nbsp;"$obj-&gt;fname\n"; $obj-&gt;lname="Diwan"; echo&nbsp;"$obj-&gt;marks\n"; $obj-&gt;age=21; ?&gt;</pre> <p>输出结果</p> <p>以下输出显示可以在类外访问公共属性，而私有属性和受保护的属性则会引发未捕获的错误</p> <pre>Ajay PHP&nbsp;Fatal&nbsp;error:&nbsp;Uncaught&nbsp;Error:&nbsp;Cannot&nbsp;access&nbsp;private&nbsp;property&nbsp;myclass::$marks PHP&nbsp;Fatal&nbsp;error:&nbsp;Uncaught&nbsp;Error:&nbsp;Cannot&nbsp;access&nbsp;protected&nbsp;property&nbsp;myclass::$age</pre> <p>但是，可以在同一类的函数内部使用私有和受保护的属性</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;myclass{ &nbsp;&nbsp;&nbsp;public&nbsp;$fname="Ajay"; &nbsp;&nbsp;&nbsp;var&nbsp;$lname; &nbsp;&nbsp;&nbsp;private&nbsp;$marks=100; &nbsp;&nbsp;&nbsp;protected&nbsp;$age=20; &nbsp;&nbsp;&nbsp;function&nbsp;displaydata(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;lname="Diwan"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"$this-&gt;fname&nbsp;$this-&gt;lname\n"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"marks=$this-&gt;marks&nbsp;age=$this-&gt;age"; &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;myclass(); $obj-&gt;displaydata(); ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果。-</p> <pre>Ajay&nbsp;Diwan marks=100&nbsp;age=20</pre> <h2>方法可见性</h2> <p>像类属性一样，还可以使用公共，私有和受保护的关键字为类方法分配可见性。默认情况下，方法也被视为公共方法。</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;myclass{ &nbsp;&nbsp;&nbsp;public&nbsp;$fname="Ajay"; &nbsp;&nbsp;&nbsp;var&nbsp;$lname; &nbsp;&nbsp;&nbsp;private&nbsp;$marks=100; &nbsp;&nbsp;&nbsp;protected&nbsp;$age=20; &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;setname(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;fname="Anil"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;lname="Dave"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"name&nbsp;changed\n"; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;setmarks(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;marks=90; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;protected&nbsp;function&nbsp;setage(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;age=21; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;function&nbsp;setdata(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;setname(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;setmarks(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;setage(); &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;function&nbsp;displaydata(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;lname="Diwan"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"$this-&gt;fname&nbsp;$this-&gt;lname\n"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"marks=$this-&gt;marks&nbsp;age=$this-&gt;age"; &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;myclass(); $obj-&gt;setname();//works $obj-&gt;setmarks();//error $obj-&gt;setage();/error $obj-&gt;setdata();&nbsp;//private&nbsp;and&nbsp;protected&nbsp;methods&nbsp;called&nbsp;withing&nbsp;public&nbsp;method $obj-&gt;displaydata(); ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果。-</p> <pre>name&nbsp;changed PHP&nbsp;Fatal&nbsp;error:&nbsp;Uncaught&nbsp;Error:&nbsp;Call&nbsp;to&nbsp;private&nbsp;method&nbsp;myclass::setmarks()&nbsp;from&nbsp;context&nbsp;'' PHP&nbsp;Fatal&nbsp;error:&nbsp;Uncaught&nbsp;Error:&nbsp;Call&nbsp;to&nbsp;protected&nbsp;method&nbsp;myclass::setage()&nbsp;from&nbsp;context&nbsp;'' Anil&nbsp;Dave marks=90&nbsp;age=21</pre> <h2>继承中的方法可见性</h2> <p><strong>父</strong>类方法可以在<strong>子</strong>类定义中覆盖。父类的私有方法和受保护方法不适用于子类的对象。但是，可以在子类方法中使用在父级中受保护的方法</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;testclass{ &nbsp;&nbsp;&nbsp;public&nbsp;$x=10; &nbsp;&nbsp;&nbsp;private&nbsp;$y=20; &nbsp;&nbsp;&nbsp;protected&nbsp;$z=30; &nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;test(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"testclass&nbsp;private&nbsp;method\n"; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test1(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"testclass&nbsp;public&nbsp;method\n"; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;protected&nbsp;function&nbsp;test2(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"testclass&nbsp;protected&nbsp;method\n"; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;function&nbsp;test3(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"x=$this-&gt;x&nbsp;y=$this-&gt;y&nbsp;z=$this-&gt;z\n"; &nbsp;&nbsp;&nbsp;} } class&nbsp;newclass&nbsp;extends&nbsp;testclass{ &nbsp;&nbsp;&nbsp;function&nbsp;test1(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"newclass&nbsp;public&nbsp;method\n"; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test4(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;test(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;test1(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;test2(); &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;newclass(); echo&nbsp;$obj-&gt;test1(); echo&nbsp;$obj-&gt;test3(); echo&nbsp;$obj-&gt;test4(); ?&gt;</pre> <p>输出结果</p> <p>这将显示以下结果</p> <pre>newclass&nbsp;public&nbsp;method x=10&nbsp;y=20&nbsp;z=30 PHP&nbsp;Fatal&nbsp;error:&nbsp;Uncaught&nbsp;Error:&nbsp;Call&nbsp;to&nbsp;private&nbsp;method&nbsp;testclass::test()&nbsp;from&nbsp;context&nbsp;'newclass'</pre> <h2>持续可见</h2> <p>从PHP 7.1开始，可见性模式可以与constaants一起使用。常量的默认可见性是public</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;testclass{ &nbsp;&nbsp;&nbsp;public&nbsp;const&nbsp;X=10; &nbsp;&nbsp;&nbsp;private&nbsp;const&nbsp;Y=20; &nbsp;&nbsp;&nbsp;protected&nbsp;const&nbsp;Z=30; &nbsp;&nbsp;&nbsp;function&nbsp;showconst(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"x="&nbsp;.&nbsp;self::X&nbsp;; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"y="&nbsp;.&nbsp;self::Y; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"z="&nbsp;.&nbsp;self::Z&nbsp;; &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;testclass(); $obj-&gt;showconst(); echo&nbsp;testclass::Y&nbsp;.&nbsp;"\n"; echo&nbsp;testclass::Z&nbsp;.&nbsp;"\n"; ?&gt;</pre> <p>输出结果</p> <p>这将显示以下结果</p> <pre>x=10y=20z=30 PHP&nbsp;Fatal&nbsp;error:&nbsp;Uncaught&nbsp;Error:&nbsp;Cannot&nbsp;access&nbsp;private&nbsp;const&nbsp;testclass::Y PHP&nbsp;Fatal&nbsp;error:&nbsp;Uncaught&nbsp;Error:&nbsp;Cannot&nbsp;access&nbsp;protected&nbsp;const&nbsp;testclass::Z</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-79853.htm">属羊的人养猫对财运有好处吗（属羊的养猫好吗风水说法）</a></p>
+                                        <p>下一个：<a href="/news/article-80571.htm">动物疫苗使用时的注意事项是什么呢（动物疫苗知识）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-node-subscribe-links.htm" title="2月23日→19.8M/S|2025年最新免费节点Mac Clash订阅链接地址">2月23日→19.8M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-high-speed-nodes.htm" title="3月11日→22.6M/S|2025年最新免费节点Mac Clash订阅链接地址">3月11日→22.6M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-73721.htm" title="实现宠物领养功能的意义（实现领养宠物的功能对象）">实现宠物领养功能的意义（实现领养宠物的功能对象）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-node-share-links.htm" title="3月23日→19M/S|2025年最新免费节点Mac Clash订阅链接地址">3月23日→19M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-clash-windows.htm" title="2月15日→18M/S|2025年最新免费节点Mac Clash订阅链接地址">2月15日→18M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-node-subscribe.htm" title="3月24日→22.6M/S|2025年最新免费节点Mac Clash订阅链接地址">3月24日→22.6M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-node-subscribe.htm" title="1月25日→20.5M/S|2025年最新免费节点Mac Clash订阅链接地址">1月25日→20.5M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-55955.htm" title="动物医院好评模板100字怎么写的 动物医院好评模板100字怎么写的啊">动物医院好评模板100字怎么写的 动物医院好评模板100字怎么写的啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-node-share.htm" title="3月22日→19.3M/S|2025年最新免费节点Mac Clash订阅链接地址">3月22日→19.3M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-63468.htm" title="Java基础之浅谈接口">Java基础之浅谈接口</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="pt-5">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Mac Clash免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- </div> -->
+    <script src="/assets/website/js/frontend/macclash/jquery-3.3.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-ui.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.easing.1.3.js"></script>
+    <script src="/assets/website/js/frontend/macclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.stellar.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.countdown.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/aos.js"></script>
+    <script src="/assets/website/js/frontend/macclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
