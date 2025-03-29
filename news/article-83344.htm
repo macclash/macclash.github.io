@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://macclash.github.io/news/article-83344.htm" />
+    <title>Spring 校验（validator，JSR-303）简单实现</title>
+        <meta name="description" content="利用Spring MVC 与 hibernate的JSR-303规范结合实现后台校验（简单案例）：  什么是JSR-303规范 与Spring MVC结合 实体类添加验证注解 *控制器验证注解添加  " />
+        <link rel="icon" href="/assets/website/img/macclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mac Clash免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://macclash.github.io/news/article-83344.htm" />
+    <meta property="og:site_name" content="Mac Clash免费机场订阅节点官网" />
+    <meta property="og:title" content="Spring 校验（validator，JSR-303）简单实现" />
+    <meta property="og:image" content="https://macclash.github.io/uploads/20240926/6566adb1038e85691a8f4eb1ad3b2b1a.webp" />
+        <meta property="og:release_date" content="2025-03-28T09:55:43" />
+    <meta property="og:updated_time" content="2025-03-28T09:55:43" />
+        <meta property="og:description" content="利用Spring MVC 与 hibernate的JSR-303规范结合实现后台校验（简单案例）：  什么是JSR-303规范 与Spring MVC结合 实体类添加验证注解 *控制器验证注解添加  " />
+        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring 校验（validator，JSR-303）简单实现">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/aos.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/style1.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BKMT4JJEWP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BKMT4JJEWP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <header class="site-navbar py-3 js-site-navbar site-navbar-target" role="banner" id="site-navbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 site-logo">
+                    <a href="/" class="text-white h2 mb-0">
+                                        <span class="mb-0">Mac Clash</span>
+                                        </a>
+                </div>
+                <div class="col-md-8 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                                        <li><a href="/" class="nav-link">首页</a></li>
+                                                        <li><a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                        <li><a href="/client.htm" class="nav-link">客户端</a></li>
+                                                        <li><a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    </header>
+    <div class="site-blocks-cover overlay" style="background-image: url(/assets/website/img/macclash/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+                    <h1 class="text-white font-weight-light text-uppercase font-weight-bold">
+                        Spring 校验（validator，JSR-303）简单实现                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section" id="section-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>利用Spring MVC 与 hibernate的JSR-303规范结合实现后台校验（简单案例）：</p> <ul> <li><strong>什么是JSR-303规范</strong></li> <li><strong>与Spring MVC结合</strong></li> <li><strong>实体类添加验证注解</strong></li> <li><strong>*控制器验证注解添加</strong></li> </ul> <hr/> <div class="toc"> <ul> <li> <a href="#spring-%E6%A0%A1%E9%AA%8Cvalidatorjsr-303%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0" rel="nofollow">Spring 校验validatorJSR-303简单实现</a></p> <ul> <li><a href="#%E4%BB%80%E4%B9%88%E6%98%AFjsr-303%E8%A7%84%E8%8C%83" rel="nofollow">什么是JSR-303规范</a></li> <li><a href="#%E4%B8%8Espring-mvc%E7%BB%93%E5%90%88" rel="nofollow">与Spring MVC结合</a></li> <li><a href="#%E5%AE%9E%E4%BD%93%E7%B1%BB%E6%B7%BB%E5%8A%A0%E9%AA%8C%E8%AF%81%E6%B3%A8%E8%A7%A3" rel="nofollow">实体类添加验证注解</a></li> <li><a href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E9%AA%8C%E8%AF%81%E6%B3%A8%E8%A7%A3%E6%B7%BB%E5%8A%A0" rel="nofollow">控制器验证注解添加</a></li> </ul> </li> </ul> </div> <h2 id="什么是jsr-303规范">什么是JSR-303规范</h2> <p>JSR 303是Java EE 6中的一项子规范，叫做Bean Validation，官方参考实现是hibernate Validator，此实现与Hibernate ORM没有任何关系。JSR 303用于对Java Bean中的字段的值进行验证。</p> <h2 id="与spring-mvc结合">与Spring MVC结合</h2> <p>Spring-mvc.xml配置：</p> <pre class="prettyprint"><code class="hljs xml">    <span class="hljs-comment">&lt;!--JSR-303--&gt;</span>     <span class="hljs-tag">&lt;<span class="hljs-title">mvc:annotation-driven</span> <span class="hljs-attribute">validator</span>=<span class="hljs-value">"validator"</span>/&gt;</span>      <span class="hljs-tag">&lt;<span class="hljs-title">bean</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"validator"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"</span>&gt;</span>         <span class="hljs-tag">&lt;<span class="hljs-title">property</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"providerClass"</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">"org.hibernate.validator.HibernateValidator"</span>/&gt;</span>         <span class="hljs-tag">&lt;<span class="hljs-title">property</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"validationMessageSource"</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">"messageSource"</span>/&gt;</span>     <span class="hljs-tag">&lt;/<span class="hljs-title">bean</span>&gt;</span>     <span class="hljs-tag">&lt;<span class="hljs-title">bean</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"messageSource"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"org.springframework.context.support.ReloadableResourceBundleMessageSource"</span>&gt;</span>         <span class="hljs-tag">&lt;<span class="hljs-title">property</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"basename"</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">"validatemessage"</span>/&gt;</span>         <span class="hljs-tag">&lt;<span class="hljs-title">property</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"useCodeAsDefaultMessage"</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">"false"</span>/&gt;</span>         <span class="hljs-tag">&lt;<span class="hljs-title">property</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"defaultEncoding"</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">"UTF-8"</span>/&gt;</span>         <span class="hljs-tag">&lt;<span class="hljs-title">property</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"cacheSeconds"</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">"60"</span>/&gt;</span>     <span class="hljs-tag">&lt;/<span class="hljs-title">bean</span>&gt;</span>     <span class="hljs-tag">&lt;<span class="hljs-title">bean</span>  <span class="hljs-attribute">id</span>=<span class="hljs-value">"webBindingInitializer"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"org.springframework.web.bind.support.ConfigurableWebBindingInitializer"</span>&gt;</span>         <span class="hljs-tag">&lt;<span class="hljs-title">property</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"conversionService"</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-title">bean</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"org.springframework.format.support.FormattingConversionServiceFactoryBean"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">bean</span>&gt;</span>         <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>         <span class="hljs-tag">&lt;<span class="hljs-title">property</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"validator"</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">"validator"</span>/&gt;</span>     <span class="hljs-tag">&lt;/<span class="hljs-title">bean</span>&gt;</span></code></pre> <h2 id="实体类添加验证注解">实体类添加验证注解</h2> <p>这里贴出部分代码，知道如何加注解即可：</p> <pre class="prettyprint"><code class="language-package com.lemontree.web.entity; hljs java"> <span class="hljs-keyword">import</span> com.lemontree.common.utils.AjaxResult; <span class="hljs-keyword">import</span> com.lemontree.common.utils.StringUtil; <span class="hljs-keyword">import</span> com.lemontree.common.utils.email.EmailUtils; <span class="hljs-keyword">import</span> org.hibernate.validator.constraints.NotEmpty;  <span class="hljs-keyword">import</span> java.util.Date;  <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> {<!-- --></span>     <span class="hljs-javadoc">/**      * This field was generated by MyBatis Generator.      * This field corresponds to the database column user.id      *      *<span class="hljs-javadoctag"> @mbg</span>.generated Thu Mar 16 13:27:38 CST 2017      */</span>     <span class="hljs-keyword">private</span> Integer id;      <span class="hljs-javadoc">/**      * This field was generated by MyBatis Generator.      * This field corresponds to the database column user.user_name      *      *<span class="hljs-javadoctag"> @mbg</span>.generated Thu Mar 16 13:27:38 CST 2017      */</span>     <span class="hljs-annotation">@NotEmpty</span>(message = <span class="hljs-string">"用户名不能为空"</span>)     <span class="hljs-keyword">private</span> String userName;      <span class="hljs-javadoc">/**      * This field was generated by MyBatis Generator.      * This field corresponds to the database column user.password      *      *<span class="hljs-javadoctag"> @mbg</span>.generated Thu Mar 16 13:27:38 CST 2017      */</span>     <span class="hljs-annotation">@NotEmpty</span>(message = <span class="hljs-string">"密码不能为空"</span>)     <span class="hljs-keyword">private</span> String password;     } </code></pre> <h2 id="控制器验证注解添加">控制器验证注解添加</h2> <p>将@Validated 注解跟在实体类前面，BindingResult紧跟其后：</p> <pre class="prettyprint"><code class="hljs avrasm">    @RequestMapping(value = <span class="hljs-string">"/login.htm"</span>, method = RequestMethod<span class="hljs-preprocessor">.POST</span>)     public @ResponseBody AjaxResult login(@Validated User user, BindingResult bindingResult,                                           HttpServletRequest request, HttpServletResponse response) {         if (bindingResult<span class="hljs-preprocessor">.hasErrors</span>()){             List&lt;FieldError&gt; errorses = bindingResult<span class="hljs-preprocessor">.getFieldErrors</span>()<span class="hljs-comment">;</span>             if (CollectionUtils<span class="hljs-preprocessor">.isNotEmpty</span>(errorses)){                 errorses<span class="hljs-preprocessor">.forEach</span>(item-&gt;{                     System<span class="hljs-preprocessor">.out</span><span class="hljs-preprocessor">.println</span>(item<span class="hljs-preprocessor">.getDefaultMessage</span>())<span class="hljs-comment">;</span>                 })<span class="hljs-comment">;</span>             }         }       }</code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82632.htm">关于CSS样式的优先级问题</a></p>
+                                        <p>下一个：<a href="/news/article-83345.htm">数据库基础知识详解三：MVCC、范式以及表连接方式</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-free-high-speed-nodes.htm" title="1月14日→19.6M/S|2025年最新免费节点Mac Clash订阅链接地址">1月14日→19.6M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-69769.htm" title="上海宠物医院杨浦分院电话（上海宠物医院地址电话大全）">上海宠物医院杨浦分院电话（上海宠物医院地址电话大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-subscribe-node.htm" title="1月5日→18.2M/S|2025年最新免费节点Mac Clash订阅链接地址">1月5日→18.2M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-58842.htm" title="成都宠物领养机构电话号码（成都宠物领养中心）">成都宠物领养机构电话号码（成都宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-79853.htm" title="属羊的人养猫对财运有好处吗（属羊的养猫好吗风水说法）">属羊的人养猫对财运有好处吗（属羊的养猫好吗风水说法）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-24-free-node-subscribe-links.htm" title="2月24日→20.9M/S|2025年最新免费节点Mac Clash订阅链接地址">2月24日→20.9M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-53766.htm" title="动物诊疗机构医疗废弃物处置的基本原则（动物医疗废物属于哪一类?）">动物诊疗机构医疗废弃物处置的基本原则（动物医疗废物属于哪一类?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-clash-node.htm" title="3月21日→19.1M/S|2025年最新免费节点Mac Clash订阅链接地址">3月21日→19.1M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-node-share.htm" title="3月13日→19M/S|2025年最新免费节点Mac Clash订阅链接地址">3月13日→19M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-62274.htm" title="安安宠医上班时间（安安宠物医院招聘网）">安安宠医上班时间（安安宠物医院招聘网）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="pt-5">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Mac Clash免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- </div> -->
+    <script src="/assets/website/js/frontend/macclash/jquery-3.3.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-ui.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.easing.1.3.js"></script>
+    <script src="/assets/website/js/frontend/macclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.stellar.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.countdown.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/aos.js"></script>
+    <script src="/assets/website/js/frontend/macclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://macclash.github.io/news/article-84057.htm" />
+    <title>wx.navigateTo/wx.redirectTo 不能跳转</title>
+        <meta name="description" content="在微信小程序开发过程中，如果你出现了在其他地方可以正常跳转，但是此时就是不行，不知道为什么。  分析原因：  1.你的页面在app.json文件中注册了吗？&nbsp; 2.你的url地址写对了吗，目" />
+        <link rel="icon" href="/assets/website/img/macclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mac Clash免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://macclash.github.io/news/article-84057.htm" />
+    <meta property="og:site_name" content="Mac Clash免费机场订阅节点官网" />
+    <meta property="og:title" content="wx.navigateTo/wx.redirectTo 不能跳转" />
+    <meta property="og:image" content="https://macclash.github.io/uploads/20240926/db1926915e39e6db3cbd5354f31647be.webp" />
+        <meta property="og:release_date" content="2025-03-29T09:02:00" />
+    <meta property="og:updated_time" content="2025-03-29T09:02:00" />
+        <meta property="og:description" content="在微信小程序开发过程中，如果你出现了在其他地方可以正常跳转，但是此时就是不行，不知道为什么。  分析原因：  1.你的页面在app.json文件中注册了吗？&nbsp; 2.你的url地址写对了吗，目" />
+        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="wx.navigateTo/wx.redirectTo 不能跳转">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/aos.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/style1.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BKMT4JJEWP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BKMT4JJEWP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <header class="site-navbar py-3 js-site-navbar site-navbar-target" role="banner" id="site-navbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 site-logo">
+                    <a href="/" class="text-white h2 mb-0">
+                                        <span class="mb-0">Mac Clash</span>
+                                        </a>
+                </div>
+                <div class="col-md-8 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                                        <li><a href="/" class="nav-link">首页</a></li>
+                                                        <li><a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                        <li><a href="/client.htm" class="nav-link">客户端</a></li>
+                                                        <li><a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    </header>
+    <div class="site-blocks-cover overlay" style="background-image: url(/assets/website/img/macclash/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+                    <h1 class="text-white font-weight-light text-uppercase font-weight-bold">
+                        wx.navigateTo/wx.redirectTo 不能跳转                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section" id="section-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p style="margin-top:0px; margin-bottom:1.1em; padding-top:0px; padding-bottom:0px; color:rgb(63,63,63); font-family:&quot;microsoft yahei&quot;; font-size:15px"> 在<a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://lib.csdn.net/base/wechat"  class="replace_word" title="微信开发知识库" style="color:rgb(223,52,52); font-weight:bold" rel="nofollow">微信</a>小程序开发过程中，如果你出现了在其他地方可以正常跳转，但是此时就是不行，不知道为什么。</p> <h3 id="分析原因" style="margin:0.8em 0px; padding:0px; font-weight:100; line-height:1.3em; font-size:1.73em; color:rgb(63,63,63); font-family:&quot;microsoft yahei&quot;"> 分析原因：</h3> <p style="margin-top:0px; margin-bottom:1.1em; padding-top:0px; padding-bottom:0px; color:rgb(63,63,63); font-family:&quot;microsoft yahei&quot;; font-size:15px"> 1.你的页面在app.json文件中注册了吗？&nbsp;<br style=""/> 2.你的url地址写对了吗，目录层级没错吗?&nbsp;<br style=""/> 3.你要跳转到的页面是非tabBar的页面吗？如果是tabBar页面，恭喜你，找到问题了。&nbsp;<br style=""/><code style="font-family:&quot;Source Code Pro&quot;,monospace; padding:2px 4px; font-size:13.5px; white-space:nowrap">wx.navigateTo/wx.redirectTo</code>只能用在非tabBar页面的跳转，要跳转到tabBar页面，需要使用<code style="font-family:&quot;Source Code Pro&quot;,monospace; padding:2px 4px; font-size:13.5px; white-space:nowrap">wx.switchTab</code></p> <p style="margin-top:0px; margin-bottom:1.1em; padding-top:0px; padding-bottom:0px; color:rgb(63,63,63); font-family:&quot;microsoft yahei&quot;; font-size:15px"> <code style="font-family:&quot;Source Code Pro&quot;,monospace; padding:2px 4px; font-size:13.5px; white-space:nowrap"></code></p> <h2 id="wxswitchtabobject" style="margin:20px 0px 10px; padding:0px; line-height:1.7; font-size:16px; font-family:Verdana,Arial,Helvetica,sans-serif"> wx.switchTab(OBJECT) </p> <hr style="margin:15px 0px; padding:0px; height:0px; border-right:0px; border-bottom:0px; border-left:0px; border-top-style:solid; border-top-color:rgb(170,170,170)"/> </h2> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; word-wrap:break-word; line-height:1.7; font-family:Verdana,Arial,Helvetica,sans-serif; font-size:14px"> 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面</p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; word-wrap:break-word; line-height:1.7; font-family:Verdana,Arial,Helvetica,sans-serif; font-size:14px"> <span style="margin:0px; padding:0px">OBJECT 参数说明：</span></p> <table style="margin:15px 0px; padding:0px; width:699.333px; table-layout:fixed; border-collapse:collapse; border-spacing:0px; color:rgb(0,0,0); font-family:Verdana,Arial,Helvetica,sans-serif; font-size:14px"> <thead style="margin:0px; padding:0px; background-color:rgb(249,249,249)"> <tr style="margin:0px; padding:0px"> <th style="margin:0px; padding:2px 4px; background-color:rgb(255,255,255); border:1px solid rgb(204,204,204)"> 参数</th> <th style="margin:0px; padding:2px 4px; background-color:rgb(255,255,255); border:1px solid rgb(204,204,204)"> 类型</th> <th style="margin:0px; padding:2px 4px; background-color:rgb(255,255,255); border:1px solid rgb(204,204,204)"> 必填</th> <th style="margin:0px; padding:2px 4px; background-color:rgb(255,255,255); border:1px solid rgb(204,204,204)"> 说明</th> </tr> </thead> <tbody style="margin:0px; padding:0px"> <tr style="margin:0px; padding:0px"> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> url</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> String</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> 是</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> 需要跳转的 tabBar 页面的路径（需在 app.json 的&nbsp;<a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.w3cschool.cn/weixinapp/hw9k1q8m.html#tabbar"  style="margin:0px; padding:0px; color:rgb(144,11,9); outline:0px; word-break:break-all" rel="nofollow">tabBar</a>&nbsp;字段定义的页面），路径后不能带参数</td> </tr> <tr style="margin:0px; padding:0px"> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> success</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> Function</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> 否</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> 接口调用成功的回调函数</td> </tr> <tr style="margin:0px; padding:0px"> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> fail</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> Function</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> 否</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> 接口调用失败的回调函数</td> </tr> <tr style="margin:0px; padding:0px"> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> complete</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> Function</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> 否</td> <td style="margin:0px; padding:2px 4px; min-width:40px; height:30px; border:1px solid rgb(204,204,204); vertical-align:top"> 接口调用结束的回调函数（调用成功、失败都会执行）</td> </tr> </tbody> </table> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; word-wrap:break-word; line-height:1.7; font-family:Verdana,Arial,Helvetica,sans-serif; font-size:14px"> <span style="margin:0px; padding:0px">示例代码：</span></p> <pre style="margin-top:15px; margin-bottom:15px; padding:10px 5px; width:auto; max-width:700px; line-height:1.7; background:rgb(239,239,239); font-size:14px; font-family:Consolas,&quot;Courier New&quot;,Courier,monospace; overflow-x:auto; border:1px solid rgb(221,221,221); word-wrap:break-word!important; white-space:pre-wrap!important"><code class="lang-json hljs" style="margin:0px; padding:0px; display:block; overflow-x:auto; background:none; color:rgb(51,51,51); font-family:Consolas,&quot;Courier New&quot;,Courier,monospace">{   <span class="hljs-string" style="margin:0px; padding:0px; color:rgb(136,0,0)">"tabBar"</span>: {     <span class="hljs-string" style="margin:0px; padding:0px; color:rgb(136,0,0)">"list"</span>: [{       <span class="hljs-string" style="margin:0px; padding:0px; color:rgb(136,0,0)">"pagePath"</span>: <span class="hljs-string" style="margin:0px; padding:0px; color:rgb(136,0,0)">"index"</span>,       <span class="hljs-string" style="margin:0px; padding:0px; color:rgb(136,0,0)">"text"</span>: <span class="hljs-string" style="margin:0px; padding:0px; color:rgb(136,0,0)">"首页"</span>     },{       <span class="hljs-string" style="margin:0px; padding:0px; color:rgb(136,0,0)">"pagePath"</span>: <span class="hljs-string" style="margin:0px; padding:0px; color:rgb(136,0,0)">"other"</span>,       <span class="hljs-string" style="margin:0px; padding:0px; color:rgb(136,0,0)">"text"</span>: <span class="hljs-string" style="margin:0px; padding:0px; color:rgb(136,0,0)">"其他"</span>     }]   } } </code></pre> <pre style="margin-top:15px; margin-bottom:15px; padding:10px 5px; width:auto; max-width:700px; line-height:1.7; background:rgb(239,239,239); font-size:14px; font-family:Consolas,&quot;Courier New&quot;,Courier,monospace; overflow-x:auto; border:1px solid rgb(221,221,221); word-wrap:break-word!important; white-space:pre-wrap!important"><code class="lang-javascript hljs" style="margin:0px; padding:0px; display:block; overflow-x:auto; background:none; color:rgb(51,51,51); font-family:Consolas,&quot;Courier New&quot;,Courier,monospace"><span style="margin:0px; padding:0px">wx.switchTab({   url: <span class="hljs-string" style="margin:0px; padding:0px; color:rgb(136,0,0)"><span class="hljs-string" style="margin:0px; padding:0px">'/index'</span></span> })</span></code></pre> <p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-83345.htm">数据库基础知识详解三：MVCC、范式以及表连接方式</a></p>
+                                        <p>下一个：<a href="/news/article-84058.htm">聊城的宠物市场（聊城宠物店地址电话）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-62274.htm" title="安安宠医上班时间（安安宠物医院招聘网）">安安宠医上班时间（安安宠物医院招聘网）</a></li>
+                        <li class="py-2"><a href="/news/article-67199.htm" title="适合初学者的C语言字符串讲解_C 语言_">适合初学者的C语言字符串讲解_C 语言_</a></li>
+                        <li class="py-2"><a href="/news/article-82632.htm" title="关于CSS样式的优先级问题">关于CSS样式的优先级问题</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-1-free-ssr-node.htm" title="3月1日→22.8M/S|2025年最新免费节点Mac Clash订阅链接地址">3月1日→22.8M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-57640.htm" title="青浦二中美术班录取分数线（青浦二中有哪些艺术类专业?）">青浦二中美术班录取分数线（青浦二中有哪些艺术类专业?）</a></li>
+                        <li class="py-2"><a href="/news/article-77110.htm" title="os和os.path的常用方法">os和os.path的常用方法</a></li>
+                        <li class="py-2"><a href="/news/article-44085.htm" title="正确计算linux系统内存使用率">正确计算linux系统内存使用率</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-free-clash.htm" title="2月25日→20.4M/S|2025年最新免费节点Mac Clash订阅链接地址">2月25日→20.4M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-65933.htm" title="动物防疫疫苗种类有哪些类型 动物防疫疫苗种类有哪些类型的">动物防疫疫苗种类有哪些类型 动物防疫疫苗种类有哪些类型的</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-clash.htm" title="1月23日→18.6M/S|2025年最新免费节点Mac Clash订阅链接地址">1月23日→18.6M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="pt-5">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Mac Clash免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- </div> -->
+    <script src="/assets/website/js/frontend/macclash/jquery-3.3.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-ui.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.easing.1.3.js"></script>
+    <script src="/assets/website/js/frontend/macclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.stellar.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.countdown.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/aos.js"></script>
+    <script src="/assets/website/js/frontend/macclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
