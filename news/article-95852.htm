@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://macclash.github.io/news/article-95852.htm" />
+    <title>微信小程序开发JAVA后端解析小程序json数组对象</title>
+        <meta name="description" content="在用JAVA与小程序联合开发项目能很好的进行前后端开发，  小程序端负责页面的逻辑，交互以及跳转等， JAVA后台负责数据的处理，接口的编写，业务的封装等。  在项目中数据主要以JSON的格式进行传输" />
+        <link rel="icon" href="/assets/website/img/macclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mac Clash免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://macclash.github.io/news/article-95852.htm" />
+    <meta property="og:site_name" content="Mac Clash免费机场订阅节点官网" />
+    <meta property="og:title" content="微信小程序开发JAVA后端解析小程序json数组对象" />
+    <meta property="og:image" content="https://macclash.github.io/uploads/20240926/3cab361a5e608b199a971280c52bf1df.webp" />
+        <meta property="og:release_date" content="2025-04-14T08:03:48" />
+    <meta property="og:updated_time" content="2025-04-14T08:03:48" />
+        <meta property="og:description" content="在用JAVA与小程序联合开发项目能很好的进行前后端开发，  小程序端负责页面的逻辑，交互以及跳转等， JAVA后台负责数据的处理，接口的编写，业务的封装等。  在项目中数据主要以JSON的格式进行传输" />
+        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="微信小程序开发JAVA后端解析小程序json数组对象">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/aos.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/style1.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BKMT4JJEWP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BKMT4JJEWP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <header class="site-navbar py-3 js-site-navbar site-navbar-target" role="banner" id="site-navbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 site-logo">
+                    <a href="/" class="text-white h2 mb-0">
+                                        <span class="mb-0">Mac Clash</span>
+                                        </a>
+                </div>
+                <div class="col-md-8 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                                        <li><a href="/" class="nav-link">首页</a></li>
+                                                        <li><a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                        <li><a href="/client.htm" class="nav-link">客户端</a></li>
+                                                        <li><a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    </header>
+    <div class="site-blocks-cover overlay" style="background-image: url(/assets/website/img/macclash/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+                    <h1 class="text-white font-weight-light text-uppercase font-weight-bold">
+                        微信小程序开发JAVA后端解析小程序json数组对象                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section" id="section-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>在用JAVA与小程序联合开发项目能很好的进行前后端开发，</p> <ul> <li><strong>小程序端</strong>负责页面的逻辑，交互以及跳转等，</li> <li><strong>JAVA后台</strong>负责数据的处理，接口的编写，业务的封装等。</li> </ul> <p>在项目中数据主要以JSON的格式进行传输，因此JAVA在后台处理时常常需要对JSON对象进行解析来获取特定数据</p> <p><strong>在小程序中的JSON数据转换</strong></p> <ul> <li>1.JSON.stingify()可以将json对象转换为json格式字符串</li> <li>2.JSON.parse()可以将json格式的字符串转换为json对象</li> </ul> <pre><code class="prism language-java">var a1<span class="token operator">=</span><span class="token string">"aa"</span><span class="token punctuation">;</span>     var a2<span class="token operator">=</span><span class="token number">22</span><span class="token punctuation">;</span>     var a3<span class="token operator">=</span><span class="token number">33</span><span class="token punctuation">;</span>     var arr<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">"01"</span><span class="token operator">:</span> a1<span class="token punctuation">,</span><span class="token string">"02"</span><span class="token operator">:</span> a2<span class="token punctuation">,</span><span class="token string">"03"</span><span class="token operator">:</span> a3<span class="token punctuation">}</span><span class="token punctuation">;</span>     var arrJosn<span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//json对象转换为json格式的字符串</span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arrJosn<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//json格式的字符串转化为json格式</span>     var jsonObject<span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>arrJosn<span class="token punctuation">)</span><span class="token punctuation">;</span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>jsonObject<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>控制台输出结果为<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/a9a47114b30c8b3bb61256689e41746e.jpg" alt="微信小程序开发JAVA后端解析小程序json数组对象"><br /><strong>在JAVA后端解析JSON数据</strong><br /> 在后台一般需要取特定数据或进行数据库的CRUD操作，因此需要对数据进行解析</p> <ul> <li> <p><strong>List转JSONArray</strong> :JSONArray ja = JSONArray.fromObject(list)</p> </li> <li> <p><strong>Map转JSONArray</strong>：JSONArray ja = JSONArray.fromObject(list)</p> </li> <li> <p><strong>JavaBean转JSONArray</strong>：JSONObject jo =<br /> JSONObject.fromObject(newJavaBean())</p> </li> <li> <p><strong>String转JSONObejct</strong>：JSONObject jo =JSONObject.fromObject(str)</p> </li> <li> <p><strong>String转JSONArray</strong>:JSONArray ja = JSONArray.fromObject(str)</p> </li> </ul> <p>例子：后台解析小程序传入的json对象数组<br /><strong>小程序代码</strong></p> <pre><code class="prism language-java">var that<span class="token operator">=</span><span class="token keyword">this</span> var address<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">"city"</span><span class="token operator">:</span><span class="token string">"GuangZhou"</span><span class="token punctuation">,</span><span class="token string">"Province"</span><span class="token operator">:</span><span class="token string">"GuangDong"</span><span class="token punctuation">,</span><span class="token string">"Country"</span><span class="token operator">:</span><span class="token string">"China"</span><span class="token punctuation">}</span>  var ordersArray<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span><span class="token string">"id"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"name"</span><span class="token operator">:</span><span class="token string">"user1"</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span><span class="token string">"id"</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">"name"</span><span class="token operator">:</span><span class="token string">"user2"</span><span class="token punctuation">}</span><span class="token punctuation">]</span>     that<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span> address<span class="token operator">:</span> address<span class="token punctuation">,</span> ordersArray<span class="token operator">:</span> ordersArray<span class="token punctuation">}</span><span class="token punctuation">)</span>     wx<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>       url<span class="token operator">:</span><span class="token string">'http://localhost:8080/orders/getOrder'</span><span class="token punctuation">,</span>       data<span class="token operator">:</span><span class="token punctuation">{<!-- --></span>         openid<span class="token operator">:</span><span class="token string">"test1"</span><span class="token punctuation">,</span>         address<span class="token operator">:</span> that<span class="token punctuation">.</span>data<span class="token punctuation">.</span>address<span class="token punctuation">,</span>         ordersArray<span class="token operator">:</span> that<span class="token punctuation">.</span>data<span class="token punctuation">.</span>ordersArray<span class="token punctuation">}</span><span class="token punctuation">,</span>       method<span class="token operator">:</span><span class="token string">"GET"</span><span class="token punctuation">,</span>       success<span class="token operator">:</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span>         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <p><strong>后台代码为</strong></p> <pre><code class="prism language-java"><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/getOrder"</span><span class="token punctuation">)</span><span class="token annotation punctuation">@ResponseBody</span><span class="token keyword">public</span> String<span class="token function">getOrder</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"openid"</span><span class="token punctuation">)</span> String openid<span class="token punctuation">,</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"address"</span><span class="token punctuation">)</span> String address<span class="token punctuation">,</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"ordersArray"</span><span class="token punctuation">)</span> String ordersArray<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>openid<span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//把json对象数组转换为普通数组</span>         JSONArray ja<span class="token operator">=</span> JSONArray<span class="token punctuation">.</span><span class="token function">parseArray</span><span class="token punctuation">(</span>ordersArray<span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ja<span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ja<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//取该数组第一个对象</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ja<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//把json对象转换为普通对象</span>         JSONObject jo<span class="token operator">=</span> JSONObject<span class="token punctuation">.</span><span class="token function">parseObject</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>jo<span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>jo<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//根据key值为city取其值</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>jo<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"city"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token string">"success"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <p>通过上面例子可把json对象数组转换为普通数组，把json对象转换为普通对象来获取到我们需要值，实现起来也很简单啦</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-95101.htm">猫咪轻微抓伤破皮（猫咪抓破了一点点皮要打疫苗吗）</a></p>
+                                        <p>下一个：<a href="/news/article-95855.htm">领养宠物的好处与坏处英语作文初一（领养宠物 英语）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-clash-node.htm" title="4月13日→20.8M/S|2025年最新免费节点Mac Clash订阅链接地址">4月13日→20.8M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-87643.htm" title="动物接种疫苗的方法有哪几种 动物接种疫苗的方法有哪几种类型">动物接种疫苗的方法有哪几种 动物接种疫苗的方法有哪几种类型</a></li>
+                        <li class="py-2"><a href="/news/article-77110.htm" title="os和os.path的常用方法">os和os.path的常用方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-clash-windows.htm" title="4月9日→22.1M/S|2025年最新免费节点Mac Clash订阅链接地址">4月9日→22.1M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-71072.htm" title="深圳市宠物领养中心在哪里啊（深圳宠物领养中心 免费）">深圳市宠物领养中心在哪里啊（深圳宠物领养中心 免费）</a></li>
+                        <li class="py-2"><a href="/news/article-93563.htm" title="Linux（Centos）下Redis开机自启设置">Linux（Centos）下Redis开机自启设置</a></li>
+                        <li class="py-2"><a href="/news/article-85478.htm" title="Centos7服务器上RabbitMQ单机安装_在线工具">Centos7服务器上RabbitMQ单机安装_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-87644.htm" title="收猫长期回收各种宠物猫干嘛（常年大量收购各种猫咪）">收猫长期回收各种宠物猫干嘛（常年大量收购各种猫咪）</a></li>
+                        <li class="py-2"><a href="/news/article-88396.htm" title="vue项目中package.json中的版本号">vue项目中package.json中的版本号</a></li>
+                        <li class="py-2"><a href="/news/article-78478.htm" title="常用的动物疫苗有（动物疫苗的概念）">常用的动物疫苗有（动物疫苗的概念）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="pt-5">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Mac Clash免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- </div> -->
+    <script src="/assets/website/js/frontend/macclash/jquery-3.3.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-ui.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.easing.1.3.js"></script>
+    <script src="/assets/website/js/frontend/macclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.stellar.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.countdown.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/aos.js"></script>
+    <script src="/assets/website/js/frontend/macclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
