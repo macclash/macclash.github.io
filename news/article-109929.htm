@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://macclash.github.io/news/article-109929.htm" />
+    <title>Python调用C语言方法</title>
+        <meta name="description" content="1、为什么要使用Python调用C语言 可以将一些耗时的操作的函数使用C语言编写，然后主题代码是python，这样使用python去调用C语言，就可以做既能有python语言的简单性，有可以利用C语言" />
+        <link rel="icon" href="/assets/website/img/macclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mac Clash免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://macclash.github.io/news/article-109929.htm" />
+    <meta property="og:site_name" content="Mac Clash免费机场订阅节点官网" />
+    <meta property="og:title" content="Python调用C语言方法" />
+    <meta property="og:image" content="https://macclash.github.io/uploads/20240926/b2ec97f1357912a7c8f9813ac2acba30.webp" />
+        <meta property="og:release_date" content="2025-05-02T09:24:07" />
+    <meta property="og:updated_time" content="2025-05-02T09:24:07" />
+        <meta property="og:description" content="1、为什么要使用Python调用C语言 可以将一些耗时的操作的函数使用C语言编写，然后主题代码是python，这样使用python去调用C语言，就可以做既能有python语言的简单性，有可以利用C语言" />
+        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python调用C语言方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/macclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/aos.css">
+    <link rel="stylesheet" href="/assets/website/css/macclash/style1.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BKMT4JJEWP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BKMT4JJEWP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <header class="site-navbar py-3 js-site-navbar site-navbar-target" role="banner" id="site-navbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 site-logo">
+                    <a href="/" class="text-white h2 mb-0">
+                                        <span class="mb-0">Mac Clash</span>
+                                        </a>
+                </div>
+                <div class="col-md-8 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                                        <li><a href="/" class="nav-link">首页</a></li>
+                                                        <li><a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                        <li><a href="/client.htm" class="nav-link">客户端</a></li>
+                                                        <li><a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    </header>
+    <div class="site-blocks-cover overlay" style="background-image: url(/assets/website/img/macclash/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+                    <h1 class="text-white font-weight-light text-uppercase font-weight-bold">
+                        Python调用C语言方法                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section" id="section-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <h2><span style="font-size: 18.72px;">1、为什么要使用Python调用C语言</span><br /></h2> <p>可以将一些耗时的操作的函数使用C语言编写，然后主题代码是python，这样使用python去调用C语言，就可以做既能有python语言的简单性，有可以利用C语言的高性能，从而达到整体既简单又高效的目的</p> <h3> <a id="2CPython_4" rel="nofollow"></a>2、C语言与Python语言的区别</h3> <p>（1）Python不擅长大量运算任务<br /> （2）Python程序的优势在于，适合IO密集型作业，比如打开文件，下载图片，运行脚本等，python作为知名的胶水语言，快速实现“计算密集型作业”的方法就是“把C的代码拿过来直接使用”</p> <h3> <a id="3PythonC_8" rel="nofollow"></a>3、Python调用C语言的步骤</h3> <p>（1）将.c文件编译为动态库文件，即.so文件</p> <pre><code class="prism language-bash"><span class="token comment"># 将C源码文件demo.c编译为动态库文件 demo.so</span> gcc demo.c -shared -o demo.so </code></pre> <p>（2）在python文件中导入cdll</p> <pre><code class="prism language-bash">from ctypes <span class="token function">import</span> cdll </code></pre> <p>（3）然后通过cdll的LoadLibrary加载动态库文件</p> <pre><code class="prism language-bash"><span class="token assign-left variable">result</span><span class="token operator">=</span>cdll.LoadLibrary<span class="token punctuation">(</span><span class="token string">"./demo.so"</span><span class="token punctuation">)</span> </code></pre> <p>（4）然后即可通过上述result调用C文件中的函数了</p> <h3> <a id="4PythonC_31" rel="nofollow"></a>4、Python调用C语言实例演示</h3> <p>（1）编写 demo.c文件，实现一个求1-100的和的函数，代码如下：</p> <pre><code class="prism language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>  <span class="token keyword">int</span>  <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">int</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>     <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>     <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">100</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>     <span class="token punctuation">{<!-- --></span>         sum<span class="token operator">+=</span>i<span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token keyword">return</span> sum<span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <p>（2）将demo.c源码文件编译为动态库文件demo.so</p> <pre><code class="prism language-bash">gcc demo.c -shared -o demo.so </code></pre> <p>（3）编写Python文件</p> <pre><code class="prism language-python"><span class="token keyword">from</span> ctypes <span class="token keyword">import</span> cdll  <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>     result<span class="token operator">=</span>cdll<span class="token punctuation">.</span>LoadLibrary<span class="token punctuation">(</span><span class="token string">"./demo.so"</span><span class="token punctuation">)</span>     <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">"__main__"</span><span class="token punctuation">:</span>     main<span class="token punctuation">(</span><span class="token punctuation">)</span> </code></pre> <p>（4）执行 python3 demo.py 这里在python文件中也同样可以拿到C源码函数的返回值<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/eeb02ed4d660db8e5b637e19e4a7a0a3.jpg" alt="Python调用C语言方法"></p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109074.htm">同安哪里有宠物医院啊（同安宠物店哪家好）</a></p>
+                                        <p>下一个：<a href="/news/article-109933.htm">动物疫苗有哪些大厂家生产的好（国内动物疫苗龙头企业）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-node-share.htm" title="4月4日→21M/S|2025年最新免费节点Mac Clash订阅链接地址">4月4日→21M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-24-free-node-subscribe-links.htm" title="4月24日→18.9M/S|2025年最新免费节点Mac Clash订阅链接地址">4月24日→18.9M/S|2025年最新免费节点Mac Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-108244.htm" title="动物医院诊疗范围包括哪些 动物医院怎么样">动物医院诊疗范围包括哪些 动物医院怎么样</a></li>
+                        <li class="py-2"><a href="/news/article-109074.htm" title="同安哪里有宠物医院啊（同安宠物店哪家好）">同安哪里有宠物医院啊（同安宠物店哪家好）</a></li>
+                        <li class="py-2"><a href="/news/article-93563.htm" title="Linux（Centos）下Redis开机自启设置">Linux（Centos）下Redis开机自启设置</a></li>
+                        <li class="py-2"><a href="/news/article-102469.htm" title="宠物领养手续怎么办理流程图片（宠物领养手续怎么办理流程图片视频）">宠物领养手续怎么办理流程图片（宠物领养手续怎么办理流程图片视频）</a></li>
+                        <li class="py-2"><a href="/news/article-97252.htm" title="狗粮颗粒机器价格图片（狗粮颗粒机器价格图片及价格）">狗粮颗粒机器价格图片（狗粮颗粒机器价格图片及价格）</a></li>
+                        <li class="py-2"><a href="/news/article-96585.htm" title="dell笔记本bios无法识别固态硬盘（dell bios不识别固态硬盘）">dell笔记本bios无法识别固态硬盘（dell bios不识别固态硬盘）</a></li>
+                        <li class="py-2"><a href="/news/article-100918.htm" title="宠物粮食市场前景如何呢视频介绍（宠物粮市场分析）">宠物粮食市场前景如何呢视频介绍（宠物粮市场分析）</a></li>
+                        <li class="py-2"><a href="/news/article-111608.htm" title="动物诊所英语 动物诊所英语怎么说">动物诊所英语 动物诊所英语怎么说</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="pt-5">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Mac Clash免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- </div> -->
+    <script src="/assets/website/js/frontend/macclash/jquery-3.3.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery-ui.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.easing.1.3.js"></script>
+    <script src="/assets/website/js/frontend/macclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.stellar.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.countdown.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/macclash/aos.js"></script>
+    <script src="/assets/website/js/frontend/macclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
