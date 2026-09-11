@@ -320,9 +320,14 @@ A：检查服务器状态、防火墙设置、端口是否正确，及账户权�
         通过选择合适协议和混淆方式，将流量伪装成正常 HTTPS 或 HTTP 数据。可降低被 DPI 检测和封锁的风险，提高节点长期稳定性和科学上网体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 中的 alterId 是什么，现在还有必要配置吗？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 的策略组可以根据延迟自动切换节点吗？</h5></div>
     <div class="panel-body">
-        alterId 曾用于 VMess 的用户混淆机制以防止重放攻击，但在 V2Ray 新版本与 VLess 出现后，alterId 已不再推荐使用。现代配置多使用 UUID 或直接迁移至 VLess/XTLS 以获得更好性能与安全性。<hr />    </div>
+        支持。Surfboard 可定期测速节点延迟，并结合策略组自动选择延迟最低的节点。这样用户无需手动切换节点即可保持高速访问，提高网络体验和稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何防止租用服务器被用作滥发或代理滥用？</h5></div>
+    <div class="panel-body">
+        限制对外端口与协议，使用防火墙与入侵检测（如 fail2ban），监控流量异常并设置告警，定期审计登录行为，及时阻断滥用源并与服务商沟通封禁滥用账户以防引起供应商封禁整台机。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mellow TUN 模式的全局代理作用是什么？</h5></div>
@@ -340,9 +345,9 @@ A：检查服务器状态、防火墙设置、端口是否正确，及账户权�
         支持按域名、IP 地址、端口、请求路径、协议类型或关键词进行分流。结合策略组，可实现广告屏蔽、视频加速、游戏优化等多种自定义网络策略。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 如何设置用户带宽限制？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 中的 alterId 是什么，现在还有必要配置吗？</h5></div>
     <div class="panel-body">
-        管理员可为每个用户设置独立带宽和流量配额，超出时可自动降速或阻止访问。这样可确保服务器资源合理分配，避免单用户占用过多带宽，提高整体网络效率和公平性。<hr />    </div>
+        alterId 曾用于 VMess 的用户混淆机制以防止重放攻击，但在 V2Ray 新版本与 VLess 出现后，alterId 已不再推荐使用。现代配置多使用 UUID 或直接迁移至 VLess/XTLS 以获得更好性能与安全性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 的传输协议选择对性能有何影响？</h5></div>
@@ -350,14 +355,9 @@ A：检查服务器状态、防火墙设置、端口是否正确，及账户权�
         V2Ray 支持 TCP、WebSocket、gRPC、QUIC 等多种传输协议。不同协议在延迟、抗封锁和吞吐量上差异明显。用户可根据网络环境选择最优协议，以获得稳定且高速的连接体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 的策略组可以根据延迟自动切换节点吗？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 如何设置用户带宽限制？</h5></div>
     <div class="panel-body">
-        支持。Surfboard 可定期测速节点延迟，并结合策略组自动选择延迟最低的节点。这样用户无需手动切换节点即可保持高速访问，提高网络体验和稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何防止租用服务器被用作滥发或代理滥用？</h5></div>
-    <div class="panel-body">
-        限制对外端口与协议，使用防火墙与入侵检测（如 fail2ban），监控流量异常并设置告警，定期审计登录行为，及时阻断滥用源并与服务商沟通封禁滥用账户以防引起供应商封禁整台机。    </div>
+        管理员可为每个用户设置独立带宽和流量配额，超出时可自动降速或阻止访问。这样可确保服务器资源合理分配，避免单用户占用过多带宽，提高整体网络效率和公平性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -405,16 +405,16 @@ A：检查服务器状态、防火墙设置、端口是否正确，及账户权�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-7.htm" title="8月7日→21.2M/S|2025年最新免费节点Mac Clash订阅链接地址">8月7日→21.2M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-1.htm" title="8月1日→20M/S|2025年最新免费节点Mac Clash订阅链接地址">8月1日→20M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-14-node-share.htm" title="8月14日→18.4M/S|2025年最新免费节点Mac Clash订阅链接地址">8月14日→18.4M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-6-free-clash.htm" title="8月6日→19.6M/S|2025年最新免费节点Mac Clash订阅链接地址">8月6日→19.6M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-19.htm" title="8月19日→21.7M/S|2025年最新免费节点Mac Clash订阅链接地址">8月19日→21.7M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-22-clash-node.htm" title="7月22日→20.2M/S|2025年最新免费节点Mac Clash订阅链接地址">7月22日→20.2M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-2-node-share.htm" title="8月2日→18.2M/S|2025年最新免费节点Mac Clash订阅链接地址">8月2日→18.2M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-16-node-share.htm" title="8月16日→21.2M/S|2025年最新免费节点Mac Clash订阅链接地址">8月16日→21.2M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-13.htm" title="8月13日→20.7M/S|2025年最新免费节点Mac Clash订阅链接地址">8月13日→20.7M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-26-free-node-subscribe.htm" title="7月26日→22.6M/S|2025年最新免费节点Mac Clash订阅链接地址">7月26日→22.6M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-14-node-share.htm" title="8月14日→18.4M/S|2025年最新免费节点Mac Clash订阅链接地址">8月14日→18.4M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-23.htm" title="8月23日→21.3M/S|2025年最新免费节点Mac Clash订阅链接地址">8月23日→21.3M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-6-free-clash.htm" title="8月6日→19.6M/S|2025年最新免费节点Mac Clash订阅链接地址">8月6日→19.6M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-4-free-node-subscribe.htm" title="9月4日→19.6M/S|2025年最新免费节点Mac Clash订阅链接地址">9月4日→19.6M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-19.htm" title="8月19日→21.7M/S|2025年最新免费节点Mac Clash订阅链接地址">8月19日→21.7M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-11.htm" title="8月11日→22.5M/S|2025年最新免费节点Mac Clash订阅链接地址">8月11日→22.5M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-windows-2026-8-21.htm" title="8月21日→20.9M/S|2025年最新免费节点Mac Clash订阅链接地址">8月21日→20.9M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-27.htm" title="8月27日→20.8M/S|2025年最新免费节点Mac Clash订阅链接地址">8月27日→20.8M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-28-free-ssr-node.htm" title="8月28日→22.9M/S|2025年最新免费节点Mac Clash订阅链接地址">8月28日→22.9M/S|2025年最新免费节点Mac Clash订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -426,10 +426,10 @@ A：检查服务器状态、防火墙设置、端口是否正确，及账户权�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
